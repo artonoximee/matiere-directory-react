@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Form from './components/Form'
 import './App.css';
 
 function App() {
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
-  const [data, setData] = React.useState([])
+  const [departments, setDepartments] = useState([])
 
   // React.useEffect(() => {
   //   base('test').select({
@@ -23,7 +24,7 @@ function App() {
   
   return (
     <div className="App">
-      <p>{data}</p>
+      <Form />
     </div>
   );
 }
