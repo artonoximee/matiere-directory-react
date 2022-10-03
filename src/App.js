@@ -7,13 +7,13 @@ import Structure from './components/Structure'
 import './App.css';
 
 function App() {
+  // initializing airtable and states
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
   const [allStructures, setAllStructures] = useState([]);
   const [filteredStructures, setFilteredStructures] = useState([]);
-
   const [formData, setFormData] = useState(
     {
       department: "ALL",
@@ -22,6 +22,7 @@ function App() {
     }
   )
 
+  // Async function to fetch departments
   const fetchDepartments = async () => {
     const fetchedDepartments = [];
     base('departments').select({
@@ -43,6 +44,7 @@ function App() {
     });
   }
 
+  // Async function to fetch types
   const fetchTypes = async () => {
     const fetchedTypes = [];
     base('structure_types').select({
@@ -64,6 +66,7 @@ function App() {
     });
   }
 
+  // Async function to fetch all structures
   const fetchStructures = async () => {
     const fetchedStructures = [];
     base('structures').select({
@@ -101,12 +104,14 @@ function App() {
     });
   }
 
+  // useEffect to fetch all data, runs only one time
   useEffect(() => {
     fetchDepartments();
     fetchTypes();
     fetchStructures();
   }, []);
 
+  // useEffect to update the structures display when user is entering infos in the form
   useEffect(() => {
     setFilteredStructures(allStructures)
     if (formData.text !== "" && formData.department === "ALL" && formData.type === "ALL") {
@@ -188,6 +193,7 @@ function App() {
     }
   }, [formData])
 
+  // handle change on the form, updates the formData state
   function handleChange(e) {
     const {name, value} = e.target
     setFormData(prevFormData => {
@@ -198,6 +204,7 @@ function App() {
     })
   }
 
+  // display the structures by calling the Structure component for each structure
   const displayStructures = filteredStructures.map(structure => {
     return (
       <Structure 
@@ -208,6 +215,7 @@ function App() {
     )
   })
 
+  // display a message if no structure matches the search query
   const noResults = 
   <span className="text-center text-light">
     <h1><i class="fa-solid fa-face-meh-blank text-secondary"></i></h1>
