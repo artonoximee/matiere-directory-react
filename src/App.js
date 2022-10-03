@@ -58,6 +58,7 @@ function App() {
     const fetchedStructures = [];
     base('structures').select({
         maxRecords: 1000,
+        filterByFormula: "NOT({name} = '')",
         sort: [{field: "postcode", direction: "asc"}]
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
@@ -102,7 +103,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <Header />
+        <Header structuresCount={structures.length} />
         <Form departments={departments} types={types} />
         <div id="results" class="row justify-content-center mt-5">
           <div class="col-lg-8 col-md-12">
