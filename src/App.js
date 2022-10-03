@@ -187,9 +187,7 @@ function App() {
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">
-
-                {displayStructures.length > 0 ? displayStructures : noResults}
-
+            {displayStructures.length > 0 ? displayStructures : noResults}
           </div>
         </div>
       </div>
