@@ -35,7 +35,7 @@ function App() {
   
   return (
     <div className="App">
-      {JSON.stringify(departments)}
+      <Form departments={departments} />
     </div>
   );
 }
