@@ -36,13 +36,6 @@ function Form(props) {
           </select>
         </div>
       </div>
-      <div className="row justify-content-center mt-2">
-        <div className="col-lg-8 col-md-12">
-          <div className="d-grid gap-2">
-            <button className="btn btn-lg btn-secondary" type="submit">Rechercher</button>
-          </div>
-        </div>
-      </div>
     </>
   )
 }
