@@ -30,7 +30,13 @@ function Form(props) {
           </select>
         </div>
         <div className="col-lg-4 col-md-12">
-          <select id="type" className="form-select form-select-lg mb-3">
+          <select 
+            id="type" 
+            className="form-select form-select-lg mb-3"
+            value={type}
+            name="type"
+            onChange={props.handleChange}
+          >
             <option value="ALL">Tous les types de structure</option>
             {optionsTypes}
           </select>
