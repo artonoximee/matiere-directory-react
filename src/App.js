@@ -92,6 +92,7 @@ function App() {
     fetchDepartments();
     fetchTypes();
     fetchStructures();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const displayStructures = structures.map(structure => 
