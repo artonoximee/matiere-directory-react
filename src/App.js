@@ -14,8 +14,13 @@ function App() {
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
             const dpts = departments;
-            dpts.push({id: record.id, num: record.get('num'), name: record.get('name')})
-            setDepartments(dpts)
+            const rec = {id: record.id, num: record.get('num'), name: record.get('name')}
+            if (dpts.some(r => r.id === rec.id)) {
+              console.log('skip')
+            } else {
+              dpts.push(rec)
+              setDepartments(dpts)
+            }
             console.log(departments)
         });
         fetchNextPage();
