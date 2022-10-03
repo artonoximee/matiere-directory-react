@@ -1,5 +1,6 @@
 #left-pane {
   max-height: 100%;
+  border: none;
 }
 
 #right-pane {
@@ -7,8 +8,17 @@
 }
 
 @media (min-width: 992px) {
+  .container {
+    height: 100vh !important;
+  }
+
+  #global-row {
+    height: 100vh !important;
+  }
+
   #left-pane {
     max-height: 100vh;
+    border-right: 1px #6d757d solid;
   }
 
   #right-pane {

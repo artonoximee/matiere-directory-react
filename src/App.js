@@ -175,7 +175,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <div className="row align-items-center">
+        <div className="row align-items-center" id="global-row">
           <div className="col-lg-6 col-md-12 p-5" id="left-pane">
             <Header structuresCount={allStructures.length} />
             <Form 
