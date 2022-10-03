@@ -17,7 +17,7 @@ function Form(props) {
   return (
     <>
       <div className="row mt-5 justify-content-center">
-        <div className="col-lg-4 col-md-12">
+        <div className="col">
           <select 
             id="department" 
             className="form-select form-select-lg mb-3" 
@@ -29,7 +29,7 @@ function Form(props) {
             {optionsDpt}
           </select>
         </div>
-        <div className="col-lg-4 col-md-12">
+        <div className="col">
           <select 
             id="type" 
             className="form-select form-select-lg mb-3"

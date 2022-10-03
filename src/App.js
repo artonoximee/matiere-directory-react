@@ -187,7 +187,7 @@ function App() {
           </div>
           <div className="col-6">
             <div id="results" class="row justify-content-center mt-5">
-              <div class="col-lg-8 col-md-12">
+              <div class="col-12">
                 {displayStructures.length > 0 ? displayStructures : noResults}
               </div>
             </div>
