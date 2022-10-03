@@ -9,7 +9,7 @@ function Form(props) {
 
   return (
     <div className="form">
-      <select id="department" class="form-select form-select-lg mb-3">
+      <select id="department" className="form-select form-select-lg mb-3">
         <option value="ALL">Tous les départements</option>
       </select>
         {optionsDpt}
