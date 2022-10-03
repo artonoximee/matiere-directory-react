@@ -10,7 +10,9 @@ function App() {
   var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
-  const [structures, setStructures] = useState([]);
+  const [allStructures, setAllStructures] = useState([]);
+  const [filteredStructures, setFilteredStructures] = useState([]);
+
   const [formData, setFormData] = useState(
     {
       department: "ALL",
@@ -87,7 +89,7 @@ function App() {
             if (fetchedStructures.some(r => r.id === rec.id)) {
             } else {
               fetchedStructures.push(rec)
-              setStructures(fetchedStructures);
+              setAllStructures(fetchedStructures);
             }
         });
         fetchNextPage();
@@ -103,9 +105,13 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  let displayStructures = structures.map(structure => 
+  const displayStructures = allStructures.map(structure => 
     <Structure structure={structure} />
   )
+
+  useEffect(() => {
+    
+  }, [formData])
 
   function handleChange(e) {
     const {name, value} = e.target
@@ -120,7 +126,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <Header structuresCount={structures.length} />
+        <Header structuresCount={allStructures.length} />
         <Form 
           departments={departments} 
           types={types} 
