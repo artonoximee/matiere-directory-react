@@ -109,7 +109,7 @@ function App() {
 
   useEffect(() => {
     setFilteredStructures(allStructures)
-    if (formData.department !== "ALL" || formData.type === "ALL") {
+    if (formData.department !== "ALL" && formData.type === "ALL") {
       setFilteredStructures(previousStructures => {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
@@ -117,9 +117,10 @@ function App() {
             newFilteredArray.push(previousStructures[i])
           }
         }
+        console.log(formData)
         return newFilteredArray
       })
-    } else if (formData.department === "ALL" || formData.type !== "ALL") {
+    } else if (formData.department === "ALL" && formData.type !== "ALL") {
       setFilteredStructures(previousStructures => {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
@@ -127,9 +128,10 @@ function App() {
             newFilteredArray.push(previousStructures[i])
           }
         }
+        console.log(formData)
         return newFilteredArray
       })
-    } else if (formData.department !== "ALL" || formData.type !== "ALL") {
+    } else if (formData.department !== "ALL" && formData.type !== "ALL") {
       setFilteredStructures(previousStructures => {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
@@ -139,6 +141,8 @@ function App() {
         }
         return newFilteredArray
       })
+    } else {
+      setFilteredStructures(allStructures)
     }
   }, [formData])
 
@@ -161,6 +165,12 @@ function App() {
       />
     )
   })
+
+  const noResults = 
+  <span className="text-center text-light">
+    <h1><i class="fa-solid fa-face-meh-blank text-secondary"></i></h1>
+    <h3>Uh oh, il semblerait qu'aucun résultat ne corresponde à votre recherche</h3>
+  </span>
   
   return (
     <>
@@ -174,7 +184,7 @@ function App() {
         />
         <div id="results" class="row justify-content-center mt-5">
           <div class="col-lg-8 col-md-12">
-            {displayStructures}
+            {displayStructures.length > 0 ? displayStructures : noResults}
           </div>
         </div>
       </div>
