@@ -11,6 +11,13 @@ function App() {
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
   const [structures, setStructures] = useState([]);
+  const [formData, setFormData] = useState(
+    {
+      department: "ALL",
+      type: "ALL",
+      text: ""
+    }
+  )
 
   const fetchDepartments = async () => {
     const fetchedDepartments = [];
@@ -96,15 +103,30 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const displayStructures = structures.map(structure => 
+  let displayStructures = structures.map(structure => 
     <Structure structure={structure} />
   )
+
+  function handleChange(e) {
+    const {name, value} = e.target
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [name]: value
+      }
+    })
+  }
   
   return (
     <>
       <div className="container">
         <Header structuresCount={structures.length} />
-        <Form departments={departments} types={types} />
+        <Form 
+          departments={departments} 
+          types={types} 
+          formData={formData} 
+          handleChange={(e) => handleChange(e)}
+        />
         <div id="results" class="row justify-content-center mt-5">
           <div class="col-lg-8 col-md-12">
             {displayStructures}

@@ -4,6 +4,8 @@ function Form(props) {
   const departments = props.departments;
   const types = props.types;
 
+  const { department, type, text } = props.formData;
+
   const optionsDpt = departments.map(dpt => 
     <option key={dpt.id} value={dpt.id}>{dpt.num} - {dpt.name}</option>
   )
@@ -16,7 +18,13 @@ function Form(props) {
     <>
       <div className="row mt-5 justify-content-center">
         <div className="col-lg-4 col-md-12">
-          <select id="department" className="form-select form-select-lg mb-3">
+          <select 
+            id="department" 
+            className="form-select form-select-lg mb-3" 
+            value={department}
+            name="department"
+            onChange={props.handleChange}
+          >
             <option value="ALL">Tous les départements</option>
             {optionsDpt}
           </select>
