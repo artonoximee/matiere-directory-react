@@ -175,8 +175,8 @@ function App() {
   return (
     <>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-6 col-md-12 p-5">
+        <div className="row align-items-center">
+          <div className="col-lg-6 col-md-12 p-5" id="left-pane">
             <Header structuresCount={allStructures.length} />
             <Form 
               departments={departments} 
@@ -186,12 +186,10 @@ function App() {
             />
             <Footer />
           </div>
-          <div className="col-lg-6 col-md-12 p-5">
-            <div id="results" class="row justify-content-center mt-5">
-              <div class="col-12">
+          <div className="col-lg-6 col-md-12 p-5" id="right-pane">
+
                 {displayStructures.length > 0 ? displayStructures : noResults}
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

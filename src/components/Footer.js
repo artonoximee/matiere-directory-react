@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="footer text-bg-dark text-center">
+    <div className="footer text-bg-dark text-center mt-5">
       <p>
         <a href="mailto:contact@mlav.land" className="btn btn-sm btn-outline-light">Contact</a>
       </p>
