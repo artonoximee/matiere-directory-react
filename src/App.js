@@ -11,7 +11,6 @@ function App() {
     const dpts = [];
     base('departments').select({
         maxRecords: 200,
-        view: "Grid view",
         filterByFormula: "NOT({structures} = '')",
         sort: [{field: "num", direction: "asc"}]
     }).eachPage(function page(records, fetchNextPage) {
