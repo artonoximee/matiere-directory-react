@@ -7,30 +7,30 @@ function App() {
   var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
   const [departments, setDepartments] = useState([]);
 
-  const fetchData = async () => {
+  const fetchDepartments = async () => {
     const dpts = [];
     base('departments').select({
         maxRecords: 200,
-        view: "Grid view"
+        view: "Grid view",
+        filterByFormula: "NOT({structures} = '')",
+        sort: [{field: "num", direction: "asc"}]
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
             const rec = {id: record.id, num: record.get('num'), name: record.get('name')}
             if (dpts.some(r => r.id === rec.id)) {
-              console.log('skip')
             } else {
               dpts.push(rec)
               setDepartments(dpts);
-              console.log(departments);
             }
         });
         fetchNextPage();
     }, function done(err) {
         if (err) { console.error(err); return; }
     });
- }
+  }
 
   useEffect(() => {
-   fetchData();
+    fetchDepartments();
   }, []);
   
   return (
