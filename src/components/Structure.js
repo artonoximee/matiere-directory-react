@@ -21,14 +21,14 @@ function Structure(props) {
         </p>
         <div className="row">
           <div className="col-lg-6 col-md-12 mt-2">
-            <a className="btn btn-sm btn-outline-light" target="_blank" href="https://www.lareservedesarts.org/"><i className="fa-solid fa-globe"></i> www.lareservedesarts.org</a>
+            <a className="btn btn-sm btn-outline-light" target="_blank" href="https://www.lareservedesarts.org/" rel="noreferrer"><i className="fa-solid fa-globe"></i> www.lareservedesarts.org</a>
           </div>
           <div className="col-lg-4 col-md-12 mt-2">
             <a className="btn btn-sm btn-outline-light" href="mailto:contact@lareservedesarts.org"><i className="fa-solid fa-envelope"></i> contact@lareservedesarts.org</a>
           </div>
           <div className="col-lg-2 col-md-12 mt-2 text-lg-end text-md-start">
-            <a className="btn btn-sm btn-outline-light me-2" target="_blank" href="https://www.facebook.com/lareservedesarts"><i className="fa-brands fa-facebook"></i></a>
-            <a className="btn btn-sm btn-outline-light me-2" target="_blank" href="https://www.instagram.com/lareservedesarts/"><i className="fa-brands fa-instagram"></i></a>
+            <a className="btn btn-sm btn-outline-light me-2" target="_blank" href="https://www.facebook.com/lareservedesarts" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a>
+            <a className="btn btn-sm btn-outline-light me-2" target="_blank" href="https://www.instagram.com/lareservedesarts/" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
           </div>
         </div>
         <div className="row">
