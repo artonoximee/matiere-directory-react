@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     base('departments').select({
-        maxRecords: 120,
+        maxRecords: 99,
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {

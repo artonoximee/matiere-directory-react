@@ -1,9 +1,13 @@
 import React from "react"
 
 function Form(props) {
+  const departments = props.departments;
+
+  const optionsDpt = departments.map(dpt => <p>{dpt}</p>)
+
   return (
     <div className="form">
-      <h1>Search here</h1>
+      {optionsDpt}
     </div>
   )
 }
