@@ -7,23 +7,25 @@ function App() {
   var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
   const [departments, setDepartments] = useState([])
 
-  // React.useEffect(() => {
-  //   base('test').select({
-  //       maxRecords: 1000,
-  //       view: "Grid view"
-  //   }).eachPage(function page(records, fetchNextPage) {
-  //       records.forEach(function(record) {
-  //           setData(prev => [...prev, record.get('name')]);
-  //       });
-  //       fetchNextPage();
-
-  //   }, function done(err) {
-  //       if (err) { console.error(err); return; }
-  //   });
-  // }, []) 
+  useEffect(() => {
+    base('departments').select({
+        maxRecords: 120,
+        view: "Grid view"
+    }).eachPage(function page(records, fetchNextPage) {
+        records.forEach(function(record) {
+            const department = record.get('num') + " - " + record.get('name')
+            setDepartments(prevDpt => [...prevDpt, department])
+        });
+        fetchNextPage();
+    
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+    });
+  }, []);
   
   return (
     <div className="App">
+      <p>{departments}</p>
       <Form />
     </div>
   );
