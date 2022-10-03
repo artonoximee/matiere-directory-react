@@ -58,11 +58,13 @@ function App() {
   }, []);
   
   return (
-    <div className="container">
-      <Header />
-      <Form departments={departments} types={types} />
+    <>
+      <div className="container">
+        <Header />
+        <Form departments={departments} types={types} />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
