@@ -20,7 +20,7 @@ function Form(props) {
         <div className="col-12">
           <select 
             id="department" 
-            className="form-select form-select-lg mb-3" 
+            className="form-select form-select-lg mb-3 bg-dark border-secondary text-light" 
             value={department}
             name="department"
             onChange={props.handleChange}
@@ -32,7 +32,7 @@ function Form(props) {
         <div className="col-12">
           <select 
             id="type" 
-            className="form-select form-select-lg mb-3"
+            className="form-select form-select-lg mb-3 bg-dark border-secondary text-light"
             value={type}
             name="type"
             onChange={props.handleChange}
