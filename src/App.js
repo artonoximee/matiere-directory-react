@@ -9,12 +9,14 @@ function App() {
 
   useEffect(() => {
     base('departments').select({
-        maxRecords: 99,
+        maxRecords: 120,
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
-            const department = record.get('num') + " - " + record.get('name')
-            setDepartments(prevDpt => [...prevDpt, department])
+            const dpts = departments;
+            dpts.push({id: record.id, num: record.get('num'), name: record.get('name')})
+            setDepartments(dpts)
+            console.log(departments)
         });
         fetchNextPage();
     
