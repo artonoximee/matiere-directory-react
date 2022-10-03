@@ -104,7 +104,7 @@ function App() {
       <div className="container">
         <Header />
         <Form departments={departments} types={types} />
-        <div class="row justify-content-center mt-5">
+        <div id="results" class="row justify-content-center mt-5">
           <div class="col-lg-8 col-md-12">
             {displayStructures}
           </div>
