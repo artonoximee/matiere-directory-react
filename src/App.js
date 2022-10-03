@@ -120,7 +120,6 @@ function App() {
         return newFilteredArray
       })
     } 
-    
   }, [formData])
 
   function handleChange(e) {
@@ -133,8 +132,16 @@ function App() {
     })
   }
 
-  const displayStructures = filteredStructures.map(structure => 
-    <Structure structure={structure} />
+  const displayStructures = filteredStructures.map(structure => {
+
+    return (
+      <Structure 
+        structure={structure}
+        types={types}
+      />
+    )
+  }
+    
   )
   
   return (
