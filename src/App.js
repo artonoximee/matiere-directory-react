@@ -109,7 +109,7 @@ function App() {
 
   useEffect(() => {
     setFilteredStructures(allStructures)
-    if (formData.department !== "ALL" || formData.type !== "ALL") {
+    if (formData.department !== "ALL" || formData.type === "ALL") {
       setFilteredStructures(previousStructures => {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
@@ -119,7 +119,27 @@ function App() {
         }
         return newFilteredArray
       })
-    } 
+    } else if (formData.department === "ALL" || formData.type !== "ALL") {
+      setFilteredStructures(previousStructures => {
+        const newFilteredArray = []
+        for (let i=0 ; i < previousStructures.length ; i++) {
+          if (previousStructures[i].structure_types[0] === formData.type) {
+            newFilteredArray.push(previousStructures[i])
+          }
+        }
+        return newFilteredArray
+      })
+    } else if (formData.department !== "ALL" || formData.type !== "ALL") {
+      setFilteredStructures(previousStructures => {
+        const newFilteredArray = []
+        for (let i=0 ; i < previousStructures.length ; i++) {
+          if (previousStructures[i].departmentId[0] === formData.department && previousStructures[i].structure_types[0] === formData.type) {
+            newFilteredArray.push(previousStructures[i])
+          }
+        }
+        return newFilteredArray
+      })
+    }
   }, [formData])
 
   function handleChange(e) {
