@@ -24,10 +24,6 @@ function Structure(props) {
     }
   }
 
-  const displayTypes = structure_types.map(structure_type => (
-    <span className="badge text-bg-light me-2" key={structure_type}>{structure_type}</span>
-  ))
-
   return (
     <div className="card reveal border border-1 border-secondary text-bg-dark mt-4">
       <div className="card-body">
