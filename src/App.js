@@ -9,22 +9,19 @@ function App() {
 
   useEffect(() => {
     base('departments').select({
-        maxRecords: 120,
+        maxRecords: 200,
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
             const dpts = departments;
             const rec = {id: record.id, num: record.get('num'), name: record.get('name')}
             if (dpts.some(r => r.id === rec.id)) {
-              console.log('skip')
             } else {
               dpts.push(rec)
               setDepartments(dpts)
             }
-            console.log(departments)
         });
         fetchNextPage();
-    
     }, function done(err) {
         if (err) { console.error(err); return; }
     });
