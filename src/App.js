@@ -84,7 +84,8 @@ function App() {
               website: record.get('website'),
               facebook_url: record.get('facebook_url'),
               twitter_url: record.get('twitter_url'),
-              instagram_url: record.get('instagram_url')
+              instagram_url: record.get('instagram_url'),
+              departmentId: record.get('departments')
             }
             if (fetchedStructures.some(r => r.id === rec.id)) {
             } else {
@@ -107,15 +108,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (formData.department !== "ALL") {
+    setFilteredStructures(allStructures)
+    if (formData.department !== "ALL" || formData.type !== "ALL") {
       setFilteredStructures(previousStructures => {
+        const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
-          if (previousStructures[i]) {
-            console.log(previousStructures[i].name)
+          if (previousStructures[i].departmentId[0] === formData.department) {
+            newFilteredArray.push(previousStructures[i])
           }
         }
+        return newFilteredArray
       })
-    }
+    } 
+    
   }, [formData])
 
   function handleChange(e) {
