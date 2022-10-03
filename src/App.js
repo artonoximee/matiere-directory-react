@@ -64,7 +64,17 @@ function App() {
             const rec = {
               id: record.id, 
               name: record.get('name'), 
-              description: record.get('description')
+              description: record.get('description'),
+              structure_types: record.get('structure_types'),
+              address: record.get('address'),
+              postcode: record.get('postcode'),
+              city: record.get('city'),
+              email: record.get('email'),
+              telephone: record.get('telephone'),
+              website: record.get('website'),
+              facebook_url: record.get('facebook_url'),
+              twitter_url: record.get('twitter_url'),
+              instagram_url: record.get('instagram_url')
             }
             if (fetchedStructures.some(r => r.id === rec.id)) {
             } else {
@@ -93,8 +103,10 @@ function App() {
       <div className="container">
         <Header />
         <Form departments={departments} types={types} />
-        <div id="results">
-          {displayStructures}
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-8 col-md-12">
+            {displayStructures}
+          </div>
         </div>
       </div>
       <Footer />
