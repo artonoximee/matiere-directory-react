@@ -90,6 +90,7 @@ function App() {
             } else {
               fetchedStructures.push(rec)
               setAllStructures(fetchedStructures);
+              setFilteredStructures(fetchedStructures);
             }
         });
         fetchNextPage();
@@ -105,12 +106,16 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const displayStructures = allStructures.map(structure => 
-    <Structure structure={structure} />
-  )
-
   useEffect(() => {
-    
+    if (formData.department !== "ALL") {
+      setFilteredStructures(previousStructures => {
+        for (let i=0 ; i < previousStructures.length ; i++) {
+          if (previousStructures[i]) {
+            console.log(previousStructures[i].name)
+          }
+        }
+      })
+    }
   }, [formData])
 
   function handleChange(e) {
@@ -122,6 +127,10 @@ function App() {
       }
     })
   }
+
+  const displayStructures = filteredStructures.map(structure => 
+    <Structure structure={structure} />
+  )
   
   return (
     <>
