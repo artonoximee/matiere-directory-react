@@ -16,9 +16,11 @@ function App() {
             const dpts = departments;
             const rec = {id: record.id, num: record.get('num'), name: record.get('name')}
             if (dpts.some(r => r.id === rec.id)) {
+              console.log('skip')
             } else {
               dpts.push(rec)
               setDepartments(dpts)
+              console.log(departments)
             }
         });
         fetchNextPage();
