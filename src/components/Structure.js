@@ -24,6 +24,10 @@ function Structure(props) {
     }
   }
 
+  const types = structure_types.map(structure_type => (
+    <span className="badge text-bg-light me-2">{structure_type}</span>
+  ))
+
   return (
     <div className="card reveal border border-1 border-secondary text-bg-dark mt-4">
       <div className="card-body">
@@ -36,8 +40,7 @@ function Structure(props) {
           </div>
           <div className="col-md-3 col-sm-12">
             {
-              structure_types &&
-              <h2 className="badge text-bg-light me-2">{structure_types}</h2>
+              structure_types && types
             }
           </div>
           <div className="col-md-3 col-sm-12 text-md-end text-sm-start">
