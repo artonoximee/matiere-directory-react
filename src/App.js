@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Form from './components/Form'
+import Structure from './components/Structure'
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
+  const [structures, setStructures] = useState([]);
 
   const fetchDepartments = async () => {
     const fetchedDepartments = [];
@@ -52,16 +54,47 @@ function App() {
     });
   }
 
+  const fetchStructures = async () => {
+    const fetchedStructures = [];
+    base('structures').select({
+        maxRecords: 1000,
+        sort: [{field: "postcode", direction: "asc"}]
+    }).eachPage(function page(records, fetchNextPage) {
+        records.forEach(function(record) {
+            const rec = {
+              id: record.id, 
+              name: record.get('name'), 
+              description: record.get('description')
+            }
+            if (fetchedStructures.some(r => r.id === rec.id)) {
+            } else {
+              fetchedStructures.push(rec)
+              setStructures(fetchedStructures);
+            }
+        });
+        fetchNextPage();
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+    });
+  }
+
   useEffect(() => {
     fetchDepartments();
     fetchTypes();
+    fetchStructures();
   }, []);
+
+  const displayStructures = structures.map(structure => 
+    <Structure structure={structure} />
+  )
   
   return (
     <>
       <div className="container">
         <Header />
         <Form departments={departments} types={types} />
+        {displayStructures}
+        <Structure />
       </div>
       <Footer />
     </>
