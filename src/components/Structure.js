@@ -76,16 +76,16 @@ function Structure(props) {
         </div>
         
           <div className="row">
-            <div className="col-12 mt-3">
               { 
                 address && 
-                <span><i className="fa-solid fa-location-dot"></i> {address}, {postcode}, {city}</span>
+                <div className="col-12 mt-3">
+                  <span><i className="fa-solid fa-location-dot"></i> {address}, {postcode}, {city}</span>
+                </div>
               }
-            </div>
               {
                 telephone &&
                 <div className="col-12 mt-3">
-                <span><i className="fa-solid fa-phone"></i> {telephone}</span>
+                  <span><i className="fa-solid fa-phone"></i> {telephone}</span>
                 </div>
               }
           </div>
