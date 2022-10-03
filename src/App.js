@@ -176,7 +176,7 @@ function App() {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-6">
+          <div className="col-lg-6 col-md-12 p-5">
             <Header structuresCount={allStructures.length} />
             <Form 
               departments={departments} 
@@ -184,8 +184,9 @@ function App() {
               formData={formData} 
               handleChange={(e) => handleChange(e)}
             />
+            <Footer />
           </div>
-          <div className="col-6">
+          <div className="col-lg-6 col-md-12 p-5">
             <div id="results" class="row justify-content-center mt-5">
               <div class="col-12">
                 {displayStructures.length > 0 ? displayStructures : noResults}
@@ -194,7 +195,6 @@ function App() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
