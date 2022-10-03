@@ -175,16 +175,22 @@ function App() {
   return (
     <>
       <div className="container">
-        <Header structuresCount={allStructures.length} />
-        <Form 
-          departments={departments} 
-          types={types} 
-          formData={formData} 
-          handleChange={(e) => handleChange(e)}
-        />
-        <div id="results" class="row justify-content-center mt-5">
-          <div class="col-lg-8 col-md-12">
-            {displayStructures.length > 0 ? displayStructures : noResults}
+        <div className="row">
+          <div className="col-6">
+            <Header structuresCount={allStructures.length} />
+            <Form 
+              departments={departments} 
+              types={types} 
+              formData={formData} 
+              handleChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="col-6">
+            <div id="results" class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-md-12">
+                {displayStructures.length > 0 ? displayStructures : noResults}
+              </div>
+            </div>
           </div>
         </div>
       </div>
