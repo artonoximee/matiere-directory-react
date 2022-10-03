@@ -89,7 +89,8 @@ function App() {
               facebook_url: record.get('facebook_url'),
               twitter_url: record.get('twitter_url'),
               instagram_url: record.get('instagram_url'),
-              departmentId: record.get('departments')
+              departmentId: record.get('departments'),
+              publish: record.get('publish')
             }
             if (fetchedStructures.some(r => r.id === rec.id)) {
             } else {
@@ -206,13 +207,7 @@ function App() {
 
   // display the structures by calling the Structure component for each structure
   const displayStructures = filteredStructures.map(structure => {
-    return (
-      <Structure 
-        key={structure.id}
-        structure={structure}
-        types={types}
-      />
-    )
+    return structure.publish && <Structure key={structure.id} structure={structure} types={types} />
   })
 
   // display a message if no structure matches the search query
