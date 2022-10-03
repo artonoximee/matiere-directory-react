@@ -32,18 +32,13 @@ function Structure(props) {
     <div className="card reveal border border-1 border-secondary text-bg-dark mt-4">
       <div className="card-body">
         <div className="row align-items-end mt-2">
-          <div className="col-md-6 col-sm-12">
+          <div className="col-12">
             {
               name &&
-              <h3><b>{name}</b></h3>
+              <h3 className="text-success"><b>{name}</b></h3>
             }
           </div>
-          <div className="col-md-3 col-sm-12">
-            {
-              structure_types && displayTypes
-            }
-          </div>
-          <div className="col-md-3 col-sm-12 text-md-end text-sm-start">
+          <div className="col-12">
             {
               postcode && city &&
               <h5>{postcode}, {city}</h5>
@@ -55,19 +50,19 @@ function Structure(props) {
           <p className="text-bg-dark mt-2">{description}</p>
         }
         <div className="row">
-          <div className="col-lg-6 col-md-12 mt-2">
+          <div className="col-12 mt-2">
             {
               website &&
               <a className="btn btn-sm btn-outline-light" target="_blank" href={website} rel="noreferrer"><i className="fa-solid fa-globe"></i> {urlBeautifier(website)}</a>
             }
           </div>
-          <div className="col-lg-4 col-md-12 mt-2">
+          <div className="col-12 mt-2">
             {
               email &&
               <a className="btn btn-sm btn-outline-light" href={`mailto:${email}`}><i className="fa-solid fa-envelope"></i> {email}</a>
             }
           </div>
-          <div className="col-lg-2 col-md-12 mt-2 text-lg-end text-md-start">
+          <div className="col-12 mt-2">
             {
               facebook_url &&
               <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={facebook_url} rel="noreferrer"><i className="fa-brands fa-facebook"></i></a>
@@ -85,18 +80,18 @@ function Structure(props) {
         </div>
         
           <div className="row">
-            <div className="col-lg-6 col-md-12 mt-3">
+            <div className="col-12 mt-3">
               { 
                 address && 
                 <span><i className="fa-solid fa-location-dot"></i> {address}, {postcode}, {city}</span>
               }
             </div>
-            <div className="col-lg-6 col-md-12 mt-3">
               {
                 telephone &&
+                <div className="col-12 mt-3">
                 <span><i className="fa-solid fa-phone"></i> {telephone}</span>
+                </div>
               }
-            </div>
           </div>
       </div>
     </div>
