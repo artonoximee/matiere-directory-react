@@ -93,8 +93,9 @@ function App() {
       <div className="container">
         <Header />
         <Form departments={departments} types={types} />
-        {displayStructures}
-        <Structure />
+        <div id="results">
+          {displayStructures}
+        </div>
       </div>
       <Footer />
     </>
