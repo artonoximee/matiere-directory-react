@@ -16,8 +16,6 @@ function Structure(props) {
     instagram_url
   } = props.structure
 
-  const types = props.types;
-
   function urlBeautifier(url) {
     if (url.slice(0, 8) === "https://") {
       return url.slice(8, -1)
@@ -26,24 +24,8 @@ function Structure(props) {
     }
   }
 
-  function getTypeName(ids) {
-    for (let i = 0 ; i < types ; i++) {
-      if (ids[0] === types[i].id) {
-        return types[i].name
-      }
-    }
-  }
-
-  console.log(types)
-
-  for (let i = 0 ; i < types ; i++) {
-    if (structure_types.includes(types[i].id)) {
-      console.log('YOYO')
-    }
-  }
-
   const displayTypes = structure_types.map(structure_type => (
-    <span className="badge text-bg-light me-2">{structure_type}</span>
+    <span className="badge text-bg-light me-2" key={structure_type}>{structure_type}</span>
   ))
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -104,7 +105,6 @@ function App() {
     fetchDepartments();
     fetchTypes();
     fetchStructures();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -133,16 +133,14 @@ function App() {
   }
 
   const displayStructures = filteredStructures.map(structure => {
-
     return (
       <Structure 
+        key={structure.id}
         structure={structure}
         types={types}
       />
     )
-  }
-    
-  )
+  })
   
   return (
     <>
