@@ -18,6 +18,14 @@ function Form(props) {
     <>
       <div className="row mt-5 justify-content-center">
         <div className="col-12">
+          <input 
+            type="text" 
+            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+            placeholder="Rechercher par nom"
+            value={text}
+            name="text"
+            onChange={props.handleChange}
+          />
           <select 
             id="department" 
             className="form-select form-select-lg mb-3 bg-dark border-secondary text-light" 
@@ -37,7 +45,7 @@ function Form(props) {
             name="type"
             onChange={props.handleChange}
           >
-            <option value="ALL">Tous les types de structure</option>
+            <option value="ALL">Tous les types de structures</option>
             {optionsTypes}
           </select>
         </div>
