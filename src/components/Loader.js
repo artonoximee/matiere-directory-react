@@ -10,7 +10,7 @@ function Loader(props) {
   // display a message if no structure matches the search query
   const noResults = 
   <span className="text-center text-light">
-    <h1><i class="fa-solid fa-face-meh-blank text-secondary"></i></h1>
+    <h1><i class="fa-solid fa-face-meh-blank text-success"></i></h1>
     <h3>Uh oh, il semblerait qu'aucun résultat ne corresponde à votre recherche</h3>
   </span>
 
