@@ -214,7 +214,7 @@ function App() {
               formData={formData} 
               handleChange={(e) => handleChange(e)}
             />
-            <Counter />
+            <Counter count={displayStructures.length} />
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">

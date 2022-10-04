@@ -1,11 +1,13 @@
 import React from 'react';
 
-function Counter() {
+function Counter(props) {
+  const count = props.count
+  
   return (
-    <div className="footer text-bg-dark text-center mt-5">
-      <p>
-        Hello there
-      </p>
+    <div className="footer text-bg-dark text-center mt-1">
+      <h6>
+        <b className="text-success">{count}</b> {count > 1 ? "résultats" : "résultat"}
+      </h6>
     </div>
   )
 }
