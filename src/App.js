@@ -68,7 +68,7 @@ function App() {
   // Async function to fetch structures
   const fetchStructures = async () => {
     const records = await base('structures').select({
-      filterByFormula: "NOT({name} = '')",
+      filterByFormula: "AND(NOT({name} = ''), NOT({publish} = ''))",
       sort: [{field: "postcode", direction: "asc"}]
     }).all();
     const fetchedStructures = [];
