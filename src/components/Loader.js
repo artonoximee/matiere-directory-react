@@ -3,7 +3,6 @@ import './Loader.css'
 
 function Loader(props) {
   const allStructuresCount = props.structuresCount;
-  const filteredStructuresCount = props.filteredStructures.length;
 
   // display a loader if the app is waiting for the API return
   const loader = <div className="loader"></div>
@@ -15,7 +14,6 @@ function Loader(props) {
     <h3>Uh oh, il semblerait qu'aucun résultat ne corresponde à votre recherche</h3>
   </span>
 
-  console.log(allStructuresCount, filteredStructuresCount)
   return (
     <div className="loader-container">
       {allStructuresCount ? noResults : loader}

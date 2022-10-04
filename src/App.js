@@ -219,7 +219,7 @@ function App() {
             {
               displayStructures.length > 0 ? 
               displayStructures : 
-              <Loader structuresCount={structuresCount} filteredStructures={filteredStructures} />
+              <Loader structuresCount={structuresCount} />
             }
           </div>
         </div>
