@@ -109,7 +109,7 @@ function App() {
     const records = await base('structures').select({
       filterByFormula: "NOT({name} = '')",
       sort: [{field: "postcode", direction: "asc"}]
-    }).all()
+    }).all();
     const fetchedStructures = [];
     setStructuresCount(records.length)
     for (const record of records) {
