@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Form from './components/Form'
 import Structure from './components/Structure'
+import Loader from './components/Loader'
 import './App.css';
 
 function App() {
