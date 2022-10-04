@@ -4,7 +4,6 @@ function Structure(props) {
   const { 
     name, 
     description, 
-    structure_types,
     address,
     postcode,
     city,
