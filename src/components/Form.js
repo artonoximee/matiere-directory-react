@@ -16,7 +16,7 @@ function Form(props) {
 
   return (
     <>
-      <div className="row mt-5 justify-content-center">
+      <div className="row justify-content-center">
         <div className="col-12">
           <input 
             type="text" 
