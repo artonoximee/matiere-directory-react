@@ -73,18 +73,20 @@ function Structure(props) {
             
           </div>
         </div>
+
+        
         
           <div className="row">
               { 
                 address && 
-                <div className="col-12 mt-3">
-                  <span><i className="fa-solid fa-location-dot text-success"></i> {address}, {postcode}, {city}</span>
+                <div className="col-8 mt-3">
+                  <a className="btn btn-sm btn-outline-light" target="_blank" href={`https://www.google.com/maps?q=${address}+${postcode}+${city}}`} rel="noreferrer"><i className="fa-solid fa-location-dot text-success"></i> {address}, {postcode}, {city}</a>
                 </div>
               }
               {
                 telephone &&
-                <div className="col-12 mt-3">
-                  <span><i className="fa-solid fa-phone text-success"></i> {telephone}</span>
+                <div className="col-4 mt-3">
+                  <a className="btn btn-sm btn-outline-light" href={`tel:${telephone}}`}><i className="fa-solid fa-phone text-success"></i> {telephone}</a>
                 </div>
               }
           </div>
