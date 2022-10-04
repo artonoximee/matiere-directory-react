@@ -13,6 +13,7 @@ function App() {
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
   const [allStructures, setAllStructures] = useState([]);
+  const [structuresCount, setStructuresCount] = useState(null);
   const [filteredStructures, setFilteredStructures] = useState([]);
   const [formData, setFormData] = useState(
     {
@@ -67,56 +68,82 @@ function App() {
   }
 
   // Async function to fetch all structures
-  const fetchStructures = async () => {
-    const fetchedStructures = [];
-    base('structures').select({
-        filterByFormula: "NOT({name} = '')",
-        sort: [{field: "postcode", direction: "asc"}]
-    }).eachPage(function page(records, fetchNextPage) {
-        records.forEach(function(record) {
-            const rec = {
-              id: record.id, 
-              name: record.get('name'), 
-              description: record.get('description'),
-              structure_types: record.get('structure_types'),
-              address: record.get('address'),
-              postcode: record.get('postcode'),
-              city: record.get('city'),
-              email: record.get('email'),
-              telephone: record.get('telephone'),
-              website: record.get('website'),
-              facebook_url: record.get('facebook_url'),
-              twitter_url: record.get('twitter_url'),
-              instagram_url: record.get('instagram_url'),
-              departmentId: record.get('departments'),
-              publish: record.get('publish')
-            }
-            if (fetchedStructures.some(r => r.id === rec.id)) {
-            } else {
-              fetchedStructures.push(rec)
-              setAllStructures(fetchedStructures);
-              setFilteredStructures(fetchedStructures);
-            }
-        });
-        fetchNextPage();
-    }, function done(err) {
-        if (err) { console.error(err); return; }
-    });
-  }
+  // const fetchStructures = async () => {
+  //   const fetchedStructures = [];
+  //   base('structures').select({
+  //       filterByFormula: "NOT({name} = '')",
+  //       sort: [{field: "postcode", direction: "asc"}]
+  //   }).eachPage(function page(records, fetchNextPage) {
+  //       records.forEach(function(record) {
+  //           const rec = {
+  //             id: record.id, 
+  //             name: record.get('name'), 
+  //             description: record.get('description'),
+  //             structure_types: record.get('structure_types'),
+  //             address: record.get('address'),
+  //             postcode: record.get('postcode'),
+  //             city: record.get('city'),
+  //             email: record.get('email'),
+  //             telephone: record.get('telephone'),
+  //             website: record.get('website'),
+  //             facebook_url: record.get('facebook_url'),
+  //             twitter_url: record.get('twitter_url'),
+  //             instagram_url: record.get('instagram_url'),
+  //             departmentId: record.get('departments'),
+  //             publish: record.get('publish')
+  //           }
+  //           if (fetchedStructures.some(r => r.id === rec.id)) {
+  //           } else {
+  //             fetchedStructures.push(rec)
+  //             setAllStructures(fetchedStructures);
+  //             setFilteredStructures(fetchedStructures);
+  //           }
+  //       });
+  //       fetchNextPage();
+  //   }, function done(err) {
+  //       if (err) { console.error(err); return; }
+  //   });
+  // }
 
   const fetchTest = async () => {
-    const records = await base('structures').select().all()
+    const records = await base('structures').select({
+      filterByFormula: "NOT({name} = '')",
+      sort: [{field: "postcode", direction: "asc"}]
+    }).all()
+    const fetchedStructures = [];
+    setStructuresCount(records.length)
     for (const record of records) {
-      console.log(record.get('name'))
+      const rec = {
+        id: record.id, 
+        name: record.get('name'), 
+        description: record.get('description'),
+        structure_types: record.get('structure_types'),
+        address: record.get('address'),
+        postcode: record.get('postcode'),
+        city: record.get('city'),
+        email: record.get('email'),
+        telephone: record.get('telephone'),
+        website: record.get('website'),
+        facebook_url: record.get('facebook_url'),
+        twitter_url: record.get('twitter_url'),
+        instagram_url: record.get('instagram_url'),
+        departmentId: record.get('departments'),
+        publish: record.get('publish')
+      }
+      if (fetchedStructures.some(r => r.id === rec.id)) {
+      } else {
+        fetchedStructures.push(rec)
+        setAllStructures(fetchedStructures);
+        setFilteredStructures(fetchedStructures);
+      }
     }
-    // console.log(records.length)
   }
 
   // useEffect to fetch all data, runs only one time
   useEffect(() => {
     fetchDepartments();
     fetchTypes();
-    fetchStructures();
+    // fetchStructures();
     fetchTest();
   }, []);
 
@@ -230,7 +257,7 @@ function App() {
       <div className="container">
         <div className="row align-items-center" id="global-row">
           <div className="col-lg-6 col-md-12 p-5" id="left-pane">
-            <Header structuresCount={allStructures.length} />
+            <Header structuresCount={structuresCount} />
             <Form 
               departments={departments} 
               types={types} 
