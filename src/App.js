@@ -39,7 +39,7 @@ function App() {
       if (fetchedDepartments.some(r => r.id === rec.id)) {
       } else {
         fetchedDepartments.push(rec)
-        setTypes(fetchedDepartments);
+        setDepartments(fetchedDepartments);
       }
     }
   }
