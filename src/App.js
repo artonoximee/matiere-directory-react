@@ -25,48 +25,46 @@ function App() {
 
   // Async function to fetch departments
   const fetchDepartments = async () => {
+    const records = await base('departments').select({
+      filterByFormula: "NOT({structures} = '')",
+      sort: [{field: "num", direction: "asc"}]
+    }).all();
     const fetchedDepartments = [];
-    base('departments').select({
-        maxRecords: 200,
-        filterByFormula: "NOT({structures} = '')",
-        sort: [{field: "num", direction: "asc"}]
-    }).eachPage(function page(records, fetchNextPage) {
-        records.forEach(function(record) {
-            const rec = {id: record.id, num: record.get('num'), name: record.get('name')}
-            if (fetchedDepartments.some(r => r.id === rec.id)) {
-            } else {
-              fetchedDepartments.push(rec)
-              setDepartments(fetchedDepartments);
-            }
-        });
-        fetchNextPage();
-    }, function done(err) {
-        if (err) { console.error(err); return; }
-    });
+    for (const record of records) {
+      const rec = {
+        id: record.id,
+        num: record.get('num'),
+        name: record.get('name')
+      }
+      if (fetchedDepartments.some(r => r.id === rec.id)) {
+      } else {
+        fetchedDepartments.push(rec)
+        setTypes(fetchedDepartments);
+      }
+    }
   }
 
   // Async function to fetch types
   const fetchTypes = async () => {
+    const records = await base('structure_types').select({
+      filterByFormula: "NOT({structures} = '')",
+      sort: [{field: "name", direction: "asc"}]
+    }).all();
     const fetchedTypes = [];
-    base('structure_types').select({
-        maxRecords: 100,
-        filterByFormula: "NOT({structures} = '')",
-        sort: [{field: "name", direction: "asc"}]
-    }).eachPage(function page(records, fetchNextPage) {
-        records.forEach(function(record) {
-            const rec = {id: record.id, name: record.get('name')}
-            if (fetchedTypes.some(r => r.id === rec.id)) {
-            } else {
-              fetchedTypes.push(rec)
-              setTypes(fetchedTypes);
-            }
-        });
-        fetchNextPage();
-    }, function done(err) {
-        if (err) { console.error(err); return; }
-    });
+    for (const record of records) {
+      const rec = {
+        id: record.id, 
+        name: record.get('name')
+      }
+      if (fetchedTypes.some(r => r.id === rec.id)) {
+      } else {
+        fetchedTypes.push(rec)
+        setTypes(fetchedTypes);
+      }
+    }
   }
 
+  // Async function to fetch structures
   const fetchStructures = async () => {
     const records = await base('structures').select({
       filterByFormula: "NOT({name} = '')",
