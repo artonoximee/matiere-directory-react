@@ -104,11 +104,20 @@ function App() {
     });
   }
 
+  const fetchTest = async () => {
+    const records = await base('structures').select().all()
+    for (const record of records) {
+      console.log(record.get('name'))
+    }
+    // console.log(records.length)
+  }
+
   // useEffect to fetch all data, runs only one time
   useEffect(() => {
     fetchDepartments();
     fetchTypes();
     fetchStructures();
+    fetchTest();
   }, []);
 
   // useEffect to update the structures display when user is entering infos in the form
