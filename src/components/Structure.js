@@ -49,27 +49,27 @@ function Structure(props) {
           <div className="col-12 mt-2">
             {
               website &&
-              <a className="btn btn-sm btn-outline-light" target="_blank" href={website} rel="noreferrer"><i className="fa-solid fa-globe"></i> {urlBeautifier(website)}</a>
+              <a className="btn btn-sm btn-outline-light" target="_blank" href={website} rel="noreferrer"><i className="fa-solid fa-globe text-success"></i> {urlBeautifier(website)}</a>
             }
           </div>
           <div className="col-12 mt-2">
             {
               email &&
-              <a className="btn btn-sm btn-outline-light" href={`mailto:${email}`}><i className="fa-solid fa-envelope"></i> {email}</a>
+              <a className="btn btn-sm btn-outline-light" href={`mailto:${email}`}><i className="fa-solid fa-envelope text-success"></i> {email}</a>
             }
           </div>
           <div className="col-12 mt-2">
             {
               facebook_url &&
-              <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={facebook_url} rel="noreferrer"><i className="fa-brands fa-facebook"></i></a>
+              <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={facebook_url} rel="noreferrer"><i className="fa-brands fa-facebook text-success"></i></a>
             }
             {
               instagram_url && 
-              <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={instagram_url} rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
+              <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={instagram_url} rel="noreferrer"><i className="fa-brands fa-instagram text-success"></i></a>
             }
             {
               twitter_url && 
-              <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={twitter_url} rel="noreferrer"><i className="fa-brands fa-twitter"></i></a>
+              <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={twitter_url} rel="noreferrer"><i className="fa-brands fa-twitter text-success"></i></a>
             }
             
           </div>
@@ -79,13 +79,13 @@ function Structure(props) {
               { 
                 address && 
                 <div className="col-12 mt-3">
-                  <span><i className="fa-solid fa-location-dot"></i> {address}, {postcode}, {city}</span>
+                  <span><i className="fa-solid fa-location-dot text-success"></i> {address}, {postcode}, {city}</span>
                 </div>
               }
               {
                 telephone &&
                 <div className="col-12 mt-3">
-                  <span><i className="fa-solid fa-phone"></i> {telephone}</span>
+                  <span><i className="fa-solid fa-phone text-success"></i> {telephone}</span>
                 </div>
               }
           </div>
