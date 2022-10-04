@@ -70,7 +70,6 @@ function App() {
   const fetchStructures = async () => {
     const fetchedStructures = [];
     base('structures').select({
-        maxRecords: 1000,
         filterByFormula: "NOT({name} = '')",
         sort: [{field: "postcode", direction: "asc"}]
     }).eachPage(function page(records, fetchNextPage) {
