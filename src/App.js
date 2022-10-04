@@ -67,45 +67,7 @@ function App() {
     });
   }
 
-  // Async function to fetch all structures
-  // const fetchStructures = async () => {
-  //   const fetchedStructures = [];
-  //   base('structures').select({
-  //       filterByFormula: "NOT({name} = '')",
-  //       sort: [{field: "postcode", direction: "asc"}]
-  //   }).eachPage(function page(records, fetchNextPage) {
-  //       records.forEach(function(record) {
-  //           const rec = {
-  //             id: record.id, 
-  //             name: record.get('name'), 
-  //             description: record.get('description'),
-  //             structure_types: record.get('structure_types'),
-  //             address: record.get('address'),
-  //             postcode: record.get('postcode'),
-  //             city: record.get('city'),
-  //             email: record.get('email'),
-  //             telephone: record.get('telephone'),
-  //             website: record.get('website'),
-  //             facebook_url: record.get('facebook_url'),
-  //             twitter_url: record.get('twitter_url'),
-  //             instagram_url: record.get('instagram_url'),
-  //             departmentId: record.get('departments'),
-  //             publish: record.get('publish')
-  //           }
-  //           if (fetchedStructures.some(r => r.id === rec.id)) {
-  //           } else {
-  //             fetchedStructures.push(rec)
-  //             setAllStructures(fetchedStructures);
-  //             setFilteredStructures(fetchedStructures);
-  //           }
-  //       });
-  //       fetchNextPage();
-  //   }, function done(err) {
-  //       if (err) { console.error(err); return; }
-  //   });
-  // }
-
-  const fetchTest = async () => {
+  const fetchStructures = async () => {
     const records = await base('structures').select({
       filterByFormula: "NOT({name} = '')",
       sort: [{field: "postcode", direction: "asc"}]
@@ -143,8 +105,7 @@ function App() {
   useEffect(() => {
     fetchDepartments();
     fetchTypes();
-    // fetchStructures();
-    fetchTest();
+    fetchStructures();
   }, []);
 
   // useEffect to update the structures display when user is entering infos in the form
