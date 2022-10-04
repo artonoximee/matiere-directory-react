@@ -201,13 +201,6 @@ function App() {
     return structure.publish && <Structure key={structure.id} structure={structure} types={types} />
   })
 
-  // display a message if no structure matches the search query
-  const noResults = 
-  <span className="text-center text-light">
-    <h1><i class="fa-solid fa-face-meh-blank text-secondary"></i></h1>
-    <h3>Uh oh, il semblerait qu'aucun résultat ne corresponde à votre recherche</h3>
-  </span>
-  
   return (
     <>
       <div className="container">
@@ -223,7 +216,11 @@ function App() {
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">
-            {displayStructures.length > 0 ? displayStructures : noResults}
+            {
+              displayStructures.length > 0 ? 
+              displayStructures : 
+              <Loader structuresCount={structuresCount} filteredStructures={filteredStructures} />
+            }
           </div>
         </div>
       </div>
