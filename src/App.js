@@ -114,7 +114,6 @@ function App() {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
           if (previousStructures[i].name.toLowerCase().includes(formData.text.toLowerCase())) {
-            console.log('hey yo')
             newFilteredArray.push(previousStructures[i])
           }
         }
@@ -125,7 +124,6 @@ function App() {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
           if (previousStructures[i].name.toLowerCase().includes(formData.text.toLowerCase()) && previousStructures[i].departmentId[0] === formData.department) {
-            console.log('hey yo')
             newFilteredArray.push(previousStructures[i])
           }
         }
@@ -136,7 +134,6 @@ function App() {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
           if (previousStructures[i].name.toLowerCase().includes(formData.text.toLowerCase()) && previousStructures[i].structure_types[0] === formData.type) {
-            console.log('hey yo')
             newFilteredArray.push(previousStructures[i])
           }
         }
@@ -147,7 +144,6 @@ function App() {
         const newFilteredArray = []
         for (let i=0 ; i < previousStructures.length ; i++) {
           if (previousStructures[i].name.toLowerCase().includes(formData.text.toLowerCase()) && previousStructures[i].departmentId[0] === formData.department && previousStructures[i].structure_types[0] === formData.type) {
-            console.log('hey yo')
             newFilteredArray.push(previousStructures[i])
           }
         }
