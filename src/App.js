@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Form from './components/Form'
 import Structure from './components/Structure'
 import Loader from './components/Loader'
+import Counter from './components/Counter'
 import './App.css';
 
 function App() {
@@ -213,6 +214,7 @@ function App() {
               formData={formData} 
               handleChange={(e) => handleChange(e)}
             />
+            <Counter />
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">
