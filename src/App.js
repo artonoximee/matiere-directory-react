@@ -6,8 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchForm from './components/SearchForm'
 import ProposalForm from './components/ProposalForm'
-import Structure from './components/Structure'
-import Loader from './components/Loader'
+import Structures from './components/Structures'
 import Counter from './components/Counter'
 
 import './App.css';
@@ -202,19 +201,16 @@ function App() {
     })
   }
 
-  // display the structures by calling the Structure component for each structure
-  const displayStructures = filteredStructures.map(structure => {
-    return structure.publish && <Structure key={structure.id} structure={structure} types={types} />
-  })
+  
 
   // handle routes
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Header />,
+      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />,
       children: [
         {
-          path: "/form",
+          path: "form",
           element: <ProposalForm />,
         }
       ]
@@ -233,16 +229,12 @@ function App() {
               formData={formData} 
               handleChange={(e) => handleChange(e)}
             />
-            <Counter count={displayStructures.length} />
+            <Counter count={filteredStructures.length} />
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">
             <RouterProvider router={router} />
-                {/* {
-                  displayStructures.length > 0 ? 
-                  displayStructures : 
-                  <Loader structuresCount={structuresCount} />
-                } */}
+                
           </div>
         </div>
       </div>
