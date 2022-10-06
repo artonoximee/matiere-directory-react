@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
-import {createBrowserRouter, RouterProvider } from "react-router-dom";
+import {createBrowserRouter, RouterProvider, Link} from "react-router-dom";
 
 import Navbar from './components/Navbar'
 import Header from './components/Header'
