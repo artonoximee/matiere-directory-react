@@ -2,7 +2,10 @@ import React from "react";
 
 function ProposalForm() {
   return (
-    <p>MY FORM GOES HERE</p>
+    <>
+      <p className="mt-5">MY FORM GOES HERE</p>
+    </>
+   
   )
 }
 

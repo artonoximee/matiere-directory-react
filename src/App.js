@@ -205,11 +205,29 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <></>
+      element: <>
+        <Header structuresCount={structuresCount} />
+        <SearchForm 
+          departments={departments} 
+          types={types} 
+          formData={formData} 
+          handleChange={(e) => handleChange(e)}
+        />
+      </>
     },
     {
       path: "search",
-      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
+      element: <>
+        <Header structuresCount={structuresCount} />
+        <SearchForm 
+          departments={departments} 
+          types={types} 
+          formData={formData} 
+          handleChange={(e) => handleChange(e)}
+        />
+        <Counter count={filteredStructures.length} />
+        <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
+      </>
     },
     {
       path: "form",
@@ -223,14 +241,6 @@ function App() {
       <div className="container">
         <div className="row align-items-center justify-content-center">
           <div className="col-lg-8 col-md-12 p-5">
-            <Header structuresCount={structuresCount} />
-            <SearchForm 
-              departments={departments} 
-              types={types} 
-              formData={formData} 
-              handleChange={(e) => handleChange(e)}
-            />
-            <Counter count={filteredStructures.length} />
             <RouterProvider router={router} />
           </div>
         </div>

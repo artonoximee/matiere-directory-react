@@ -1,26 +1,25 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navbar fixed-top navbar-dark navbar-expand-lg bg-dark p-4 border-bottom border-secondary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#"><i className="fa-solid fa-address-book text-success"></i> &nbsp;Annuaire Réemploi</a>
+        <a className="navbar-brand" href="/"><i className="fa-solid fa-address-book text-success"></i> &nbsp;Annuaire Réemploi</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-            <a className="nav-link" href="#">Recherche</a>
+            <a className="nav-link" href="/">Recherche</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Proposer un ajout</a>
+              <a className="nav-link" href="/form">Proposer un ajout</a>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">Contact</a>
+              <a className="nav-link" href="mailto:contact@mlav.land">Contact</a>
             </li>
           </ul>
         </div>
