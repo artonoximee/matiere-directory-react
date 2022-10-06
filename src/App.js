@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
+import {Outlet} from 'react-router-dom';
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -221,11 +222,12 @@ function App() {
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">
-            {
-              displayStructures.length > 0 ? 
-              displayStructures : 
-              <Loader structuresCount={structuresCount} />
-            }
+                <Outlet />
+                {
+                  displayStructures.length > 0 ? 
+                  displayStructures : 
+                  <Loader structuresCount={structuresCount} />
+                }
           </div>
         </div>
       </div>
