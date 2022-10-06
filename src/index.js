@@ -12,7 +12,6 @@ import Search from './components/Search'
 import ProposalForm from './components/ProposalForm'
 import reportWebVitals from './reportWebVitals';
 
-// handle routes
 const router = createBrowserRouter([
   {
     path: "/",
