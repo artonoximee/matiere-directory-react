@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
-import {createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import {createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -201,13 +201,15 @@ function App() {
     })
   }
 
-  
-
   // handle routes
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
+      element: <></>
+    },
+    {
+      path: "search",
+      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />,
     },
     {
       path: "form",
@@ -218,7 +220,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <div className="row align-items-center justify-content-center" id="global-row">
+        <div className="row align-items-center justify-content-center">
           <div className="col-lg-8 col-md-12 p-5" id="left-pane">
             <Header structuresCount={structuresCount} />
             <SearchForm 
