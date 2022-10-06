@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import {createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchForm from './components/SearchForm'
@@ -219,6 +220,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <div className="container">
         <div className="row align-items-center justify-content-center">
           <div className="col-lg-8 col-md-12 p-5" id="left-pane">
