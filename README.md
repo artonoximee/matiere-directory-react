@@ -6,7 +6,7 @@ This website is a personal experiment to understand and learn React in a real-ca
 
 ## Security
 
-Airtable API key is handled with the [react-dotenv](https://www.npmjs.com/package/react-dotenv) package. It is deployed on Netlify with environment variables, and can't be read from the client side.
+Airtable API key is handled with the [react-dotenv](https://www.npmjs.com/package/react-dotenv) package.
 
 ## Live version
 
