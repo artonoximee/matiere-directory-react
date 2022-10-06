@@ -207,21 +207,19 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />,
-      children: [
-        {
-          path: "form",
-          element: <ProposalForm />,
-        }
-      ]
+      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
+    },
+    {
+      path: "form",
+      element: <ProposalForm />,
     }
   ]);
 
   return (
     <>
       <div className="container">
-        <div className="row align-items-center" id="global-row">
-          <div className="col-lg-6 col-md-12 p-5" id="left-pane">
+        <div className="row align-items-center justify-content-center" id="global-row">
+          <div className="col-lg-8 col-md-12 p-5" id="left-pane">
             <Header structuresCount={structuresCount} />
             <SearchForm 
               departments={departments} 
@@ -231,10 +229,7 @@ function App() {
             />
             <Counter count={filteredStructures.length} />
             <Footer />
-          </div>
-          <div className="col-lg-6 col-md-12 p-5" id="right-pane">
             <RouterProvider router={router} />
-                
           </div>
         </div>
       </div>
