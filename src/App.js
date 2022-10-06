@@ -206,15 +206,15 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <></>
+      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
     },
     {
       path: "search",
-      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />,
+      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
     },
     {
       path: "form",
-      element: <ProposalForm />,
+      element: <ProposalForm />
     }
   ]);
 
