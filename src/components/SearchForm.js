@@ -16,7 +16,7 @@ function SearchForm(props) {
 
   return (
     <>
-      <div className="row justify-content-center">
+      <div className="row justify-content-center mt-4">
         <div className="col-12">
           <input 
             type="text" 

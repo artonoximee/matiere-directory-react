@@ -10,14 +10,11 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav ms-5 me-auto">
-          <li className="nav-item">
-              <a className="nav-link" href="#">Accueil</a>
-            </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Recherche</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Ajouter</a>
+              <a className="nav-link" href="#">Proposer un ajout</a>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
