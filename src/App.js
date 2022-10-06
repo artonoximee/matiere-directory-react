@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Form from './components/Form'
+import SearchForm from './components/SearchForm'
 import Structure from './components/Structure'
 import Loader from './components/Loader'
 import Counter from './components/Counter'
@@ -211,7 +211,7 @@ function App() {
         <div className="row align-items-center" id="global-row">
           <div className="col-lg-6 col-md-12 p-5" id="left-pane">
             <Header structuresCount={structuresCount} />
-            <Form 
+            <SearchForm 
               departments={departments} 
               types={types} 
               formData={formData} 

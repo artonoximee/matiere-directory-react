@@ -1,6 +1,6 @@
 import React from "react"
 
-function Form(props) {
+function SearchForm(props) {
   const departments = props.departments;
   const types = props.types;
 
@@ -54,4 +54,4 @@ function Form(props) {
   )
 }
 
-export default Form;
+export default SearchForm;
