@@ -230,11 +230,11 @@ function App() {
               handleChange={(e) => handleChange(e)}
             />
             <Counter count={filteredStructures.length} />
-            <Footer />
             <RouterProvider router={router} />
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
