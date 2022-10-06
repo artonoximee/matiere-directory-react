@@ -9,7 +9,6 @@ function Header(props) {
           L'objectif de cette base de données est de répertorier <b>les acteur·ices qui œuvrent pour le réemploi de matériaux de construction en France</b>.
           L'outil de recherche ci-dessous vous permet d'accéder aux acteur·ices autour de vous selon les services qu'ielles proposent.
         </p>
-        
       </div>
     </div>
   )
