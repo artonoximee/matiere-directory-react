@@ -222,7 +222,7 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row align-items-center justify-content-center">
-          <div className="col-lg-8 col-md-12 p-5" id="left-pane">
+          <div className="col-lg-8 col-md-12 p-5">
             <Header structuresCount={structuresCount} />
             <SearchForm 
               departments={departments} 
