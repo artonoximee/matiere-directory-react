@@ -1,11 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
+import env from "react-dotenv";
+
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Form from './components/Form'
 import Structure from './components/Structure'
 import Loader from './components/Loader'
 import Counter from './components/Counter'
+
 import './App.css';
 
 function App() {
@@ -201,6 +204,8 @@ function App() {
   const displayStructures = filteredStructures.map(structure => {
     return structure.publish && <Structure key={structure.id} structure={structure} types={types} />
   })
+
+  // console.log(env.AIRTABLE_BASE)
 
   return (
     <>
