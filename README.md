@@ -6,9 +6,7 @@ This website is a personal experiment to understand and learn React in a real-ca
 
 ## Security
 
-Since this is a fully client-side website, the Airtable API Key is stored in a readable JS file. This is a major security threat. [This process](https://support.airtable.com/docs/creating-a-read-only-api-key), described by Airtable has been followed in order to create an API Key that has a read-only access.
-
-It is planned to later add a dotenv setup in order to securely save this API key.
+Airtable API key is handled with the [react-dotenv](https://www.npmjs.com/package/react-dotenv) package. It is deployed on Netlify with environment variables, and can't be read from the client side.
 
 ## Live version
 
