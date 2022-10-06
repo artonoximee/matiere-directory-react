@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
-import {Outlet} from 'react-router-dom';
+import {createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchForm from './components/SearchForm'
+import ProposalForm from './components/ProposalForm'
 import Structure from './components/Structure'
 import Loader from './components/Loader'
 import Counter from './components/Counter'
@@ -206,6 +207,20 @@ function App() {
     return structure.publish && <Structure key={structure.id} structure={structure} types={types} />
   })
 
+  // handle routes
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Header />,
+      children: [
+        {
+          path: "/form",
+          element: <ProposalForm />,
+        }
+      ]
+    }
+  ]);
+
   return (
     <>
       <div className="container">
@@ -222,12 +237,12 @@ function App() {
             <Footer />
           </div>
           <div className="col-lg-6 col-md-12 p-5" id="right-pane">
-                <Outlet />
-                {
+            <RouterProvider router={router} />
+                {/* {
                   displayStructures.length > 0 ? 
                   displayStructures : 
                   <Loader structuresCount={structuresCount} />
-                }
+                } */}
           </div>
         </div>
       </div>
