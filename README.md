@@ -6,7 +6,7 @@ This website is a personal experiment to understand and learn React in a real-ca
 
 ## Security
 
-Airtable API key is handled with the [react-dotenv](https://www.npmjs.com/package/react-dotenv) package.
+To avoid public release, Airtable API key is handled with dotenv (included in react-scripts).
 
 ## Live version
 
