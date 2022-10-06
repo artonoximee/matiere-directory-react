@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
-import env from "react-dotenv";
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -14,7 +13,8 @@ import './App.css';
 function App() {
   // initializing airtable and states
   var Airtable = require('airtable');
-  var base = new Airtable({apiKey: env.AIRTABLE_API_KEY}).base(env.AIRTABLE_BASE);
+  var base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base(process.env.REACT_APP_AIRTABLE_BASE);
+
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
   const [allStructures, setAllStructures] = useState([]);
