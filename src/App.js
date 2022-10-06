@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   // initializing airtable and states
   var Airtable = require('airtable');
-  var base = new Airtable({apiKey: 'keyEgsODRGeMoFEqh'}).base('app71fe0Ff06gsUXD');
+  var base = new Airtable({apiKey: env.AIRTABLE_API_KEY}).base(env.AIRTABLE_BASE);
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
   const [allStructures, setAllStructures] = useState([]);
@@ -204,8 +204,6 @@ function App() {
   const displayStructures = filteredStructures.map(structure => {
     return structure.publish && <Structure key={structure.id} structure={structure} types={types} />
   })
-
-  // console.log(env.AIRTABLE_BASE)
 
   return (
     <>
