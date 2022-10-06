@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header(props) {
   return (
-    <div className="row mt-5 mb-5 justify-content-center">
+    <div className="row mt-5 justify-content-center" id="header-text">
       <div className="col mt-5">
         <h1 className="text-center"><i className="fa-solid fa-address-book text-success"></i> &nbsp;Annuaire Réemploi</h1>
         <p className="fs-4 mt-5 text-center">

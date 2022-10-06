@@ -206,7 +206,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
+      element: <></>
     },
     {
       path: "search",
