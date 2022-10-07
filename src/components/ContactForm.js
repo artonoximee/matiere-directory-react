@@ -5,35 +5,35 @@ function SuggestForm() {
     <>
       <div className="row justify-content-center mt-4">
         <div className="col-12">
-          <label for="name" className="form-label"><i class="fa-solid fa-file-lines text-success"></i> Nom de la structure</label>
+          <label for="name" className="form-label"><i class="fa-solid fa-user text-success"></i> Votre nom</label>
           <input 
             type="text"
             id="name"
             className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
-            placeholder="Bureau Réemploi"
+            placeholder="Marcel Dupont"
             value={null}
-            name="text"
+            name="name"
             onChange={null}
           />
-          <label for="name" className="form-label"><i class="fa-solid fa-file-lines text-success"></i> Nom de la structure</label>
+          <label for="name" className="form-label"><i class="fa-solid fa-envelope text-success"></i> Votre email</label>
           <input 
             type="text"
             id="name"
             className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
-            placeholder="Bureau Réemploi"
+            placeholder="marceldupont@gmail.com"
             value={null}
-            name="text"
+            name="email"
             onChange={null}
           />
-          <label for="description" className="form-label">Description de la structure</label>
+          <label for="message" className="form-label"><i class="fa-solid fa-file-lines text-success"></i> Votre message</label>
           <textarea 
             type="text"
-            id="description"
+            id="message"
             rows="5"
             className="form-control form-control-lg mb-5 bg-dark border-secondary text-light"
-            placeholder="Entrez ici une description qui permettra de comprendre les services proposés par la structure"
+            placeholder="Votre message ici !"
             value={null}
-            name="description"
+            name="message"
             onChange={null}
           />
 

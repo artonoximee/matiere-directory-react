@@ -100,7 +100,7 @@ function SuggestForm() {
               />
             </div>
             <div class="col-lg-6 col-md-12">
-              <label for="email" className="form-label"><i class="fa-solid fa-phone text-success"></i> Téléphone</label>
+              <label for="telephone" className="form-label"><i class="fa-solid fa-phone text-success"></i> Téléphone</label>
               <input 
                 type="text" 
                 id="telephone"
