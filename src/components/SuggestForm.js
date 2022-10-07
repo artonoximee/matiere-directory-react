@@ -1,9 +1,9 @@
 import React from "react";
 
-function ProposalForm() {
+function SuggestForm() {
   return (
     <>
-      <div className="row justify-content-center top-margin">
+      <div className="row justify-content-center mt-4">
         <div className="col-12">
           <input 
             type="text" 
@@ -19,4 +19,4 @@ function ProposalForm() {
   )
 }
 
-export default ProposalForm;
+export default SuggestForm;

@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import Search from './components/Search'
-import ProposalForm from './components/ProposalForm'
+import Suggest from './components/Suggest'
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "form",
-        element: <ProposalForm />
+        element: <Suggest />
       }
     ]
   }
