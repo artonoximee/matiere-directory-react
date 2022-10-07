@@ -43,7 +43,7 @@ function SuggestForm(props) {
           />
 
           <div className="d-grid gap-2 mb-5 bottom-margin">
-            <button className="btn btn-lg btn-outline-success" onClick={props.handleSubmit} type="submit">Envoyer</button>
+            <button className="btn btn-lg btn-outline-success" onClick={props.handleSubmit} type="submit" disabled={!props.disableSubmit}>Envoyer</button>
           </div>
         </div>
       </div>

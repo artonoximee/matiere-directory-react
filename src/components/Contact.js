@@ -110,6 +110,7 @@ function Contact() {
         handleChange={(e) => handleChange(e)}
         handleSubmit={handleSubmit}
         onFocusOut={(e) => onFocusOut(e)}
+        disableSubmit={formValid}
       />
     </>
   )
