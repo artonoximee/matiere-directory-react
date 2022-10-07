@@ -28,28 +28,16 @@ function Contact() {
     switch(name) {
       case 'name':
         const nameValid = value.length < 100;
-        if (nameValid) {
-          console.log('Name is valid');
-        } else {
-          console.log('Name is too long');
-        }
+        nameValid ? setFormErrors(prev => ({...prev, name: ''})) : setFormErrors(prev => ({...prev, name: "is too long"}))
         break;
       case 'email':
         const emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        if (emailValid) {
-          console.log('Email is valid');
-        } else {
-          console.log('Invalid email');
-        }
+        emailValid ? setFormErrors(prev => ({...prev, email: ''})) : setFormErrors(prev => ({...prev, email: "is invalid"}))
         break;
       case 'message':
-          const messageValid = value.length < 1000;
-          if (messageValid) {
-            console.log('Message length is ok');
-          } else {
-            console.log('Message is too long');
-          }
-          break;
+        const messageValid = value.length < 1000;
+        messageValid ? setFormErrors(prev => ({...prev, message: ''})) : setFormErrors(prev => ({...prev, email: "is too long"}))
+        break;
       default:
         break;
     }
