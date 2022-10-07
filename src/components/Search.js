@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
 
-import Header from './Header'
+import SearchHeader from './SearchHeader'
 import SearchForm from './SearchForm'
 import Structures from './Structures'
 import Counter from './Counter'
@@ -198,7 +198,7 @@ function Search() {
 
   return (
     <>
-      <Header structuresCount={structuresCount} />
+      <SearchHeader structuresCount={structuresCount} />
       <SearchForm 
         departments={departments} 
         types={types} 
