@@ -206,6 +206,7 @@ function Search() {
         handleChange={(e) => handleChange(e)}
       />
       <Counter count={filteredStructures.length} />
+      <br /><br /><br />
       <Structures filteredStructures={filteredStructures} structuresCount={structuresCount} />
     </>
   )

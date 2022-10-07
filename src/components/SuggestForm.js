@@ -1,171 +1,174 @@
-import React from "react";
+import React, {useState} from "react";
+import {useForm} from "react-hook-form";
 
 function SuggestForm() {
+  var Airtable = require('airtable');
+  var base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base(process.env.REACT_APP_AIRTABLE_BASE);
+  
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [confirmSent, setConfirmSent] = useState(false)
+
+  function onSubmit(data) {
+    console.log(data)
+    setConfirmSent(true)
+  }
+
+  function resetConfirmButton() {
+    setConfirmSent(false)
+  }
+
   return (
     <>
       <div className="row justify-content-center mt-4">
         <div className="col-12">
-          <label htmlFor="name" className="form-label"><i className="fa-solid fa-file-lines text-success"></i> Nom de la structure</label>
+          <label htmlFor="name" className="form-label mt-3"><i className="fa-solid fa-file-lines text-success"></i> Nom de la structure</label>
           <input 
             type="text"
             id="name"
-            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.name && "is-invalid border-danger"}`}
             placeholder="Bureau Réemploi"
-            value={null}
-            name="text"
-            onChange={null}
+            {...register("name", { required: true })}
           />
-          <label htmlFor="description" className="form-label">Description de la structure</label>
+          {errors.name && <p className="text-danger mt-2">Merci de renseigner le nom de la structure</p>}
+
+          <label htmlFor="description" className="form-label mt-3">Description de la structure</label>
           <textarea 
             type="text"
             id="description"
             rows="5"
-            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.description && "is-invalid border-danger"}`}
             placeholder="Entrez ici une description qui permettra de comprendre les services proposés par la structure"
-            value={null}
-            name="description"
-            onChange={null}
+            {...register("description", { required: true })}
           />
-          <label htmlFor="type" className="form-label">Type de structure</label>
+          {errors.description && <p className="text-danger mt-2">Merci de renseigner la description de la structure</p>}
+
+          <label htmlFor="type" className="form-label mt-3">Type de structure</label>
           <select 
             id="type" 
-            className="form-select form-select-lg mb-5 bg-dark border-secondary text-light" 
-            value={null}
-            name="structure_types"
-            onChange={null}
+            className="form-select form-select-lg bg-dark border-secondary text-light" 
+            {...register("structure_type")}
           >
             <option value="NONE">Choisir le type de structure</option>
           </select>
 
 
-          <label htmlFor="address" className="form-label"><i className="fa-solid fa-location-dot text-success"></i> Adresse (numéro et rue)</label>
+          <label htmlFor="address" className="form-label mt-5"><i className="fa-solid fa-location-dot text-success"></i> Adresse (numéro et rue)</label>
           <input 
             type="text" 
             id="address"
-            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+            className="form-control form-control-lg bg-dark border-secondary text-light"
             placeholder="1 Rue de l'Hôtel de Ville"
-            value={null}
-            name="address"
-            onChange={null}
+            {...register("address")}
           />
           <div className="row">
             <div className="col-lg-6 col-md-12">
-              <label htmlFor="address" className="form-label">Code postal</label>
+              <label htmlFor="address" className="form-label mt-3">Code postal</label>
               <input
                 type="text"
                 id="address"
-                className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+                className="form-control form-control-lg bg-dark border-secondary text-light"
                 placeholder="12345"
-                value={null}
-                name="postcode"
-                onChange={null}
+                {...register("postcode")}
               />
             </div>
             <div className="col-lg-6 col-md-12">
-              <label htmlFor="department" className="form-label">Département</label>
+              <label htmlFor="department" className="form-label mt-3">Département</label>
               <select 
                 id="department" 
-                className="form-select form-select-lg mb-3 bg-dark border-secondary text-light" 
-                value={null}
-                name="department"
-                onChange={null}
+                className="form-select form-select-lg bg-dark border-secondary text-light" 
+                {...register("department")}
               >
                 <option value="NONE">Choisir le département</option>
               </select>
             </div>
           </div>
 
-          <label htmlFor="city" className="form-label">Ville</label>
+          <label htmlFor="city" className="form-label mt-3">Ville</label>
           <input 
             type="text" 
             id="city"
-            className="form-control form-control-lg mb-5 bg-dark border-secondary text-light"
+            className="form-control form-control-lg bg-dark border-secondary text-light"
             placeholder="Nom de la localité"
-            value={null}
-            name="text"
-            onChange={null}
+            {...register("city")}
           />
 
           <div className="row">
             <div className="col-lg-6 col-md-12">
-              <label htmlFor="email" className="form-label"><i className="fa-solid fa-envelope text-success"></i> Email</label>
+              <label htmlFor="email" className="form-label mt-5"><i className="fa-solid fa-envelope text-success"></i> Email</label>
               <input 
                 type="email" 
                 id="email"
-                className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+                className="form-control form-control-lg bg-dark border-secondary text-light"
                 placeholder="nom@domaine.com"
-                value={null}
-                name="email"
-                onChange={null}
+                {...register("email")}
               />
             </div>
             <div className="col-lg-6 col-md-12">
-              <label htmlFor="telephone" className="form-label"><i className="fa-solid fa-phone text-success"></i> Téléphone</label>
+              <label htmlFor="telephone" className="form-label mt-lg-5 mt-3"><i className="fa-solid fa-phone text-success"></i> Téléphone</label>
               <input 
                 type="text" 
                 id="telephone"
-                className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+                className="form-control form-control-lg bg-dark border-secondary text-light"
                 placeholder="01 23 45 67 89"
-                value={null}
-                name="telephone"
-                onChange={null}
+                {...register("telephone")}
               />
             </div>
           </div>
 
-          <label htmlFor="website" className="form-label"><i className="fa-solid fa-link text-success"></i> Site web</label>
+          <label htmlFor="website" className="form-label mt-3"><i className="fa-solid fa-link text-success"></i> Site web</label>
           <input 
             type="text" 
             id="website"
-            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+            className="form-control form-control-lg bg-dark border-secondary text-light"
             placeholder="http://www.siteinternet.com/"
-            value={null}
-            name="website"
-            onChange={null}
+            {...register("website")}
           />
 
           <div className="row">
             <div className="col-lg-4 col-md-12">
-              <label htmlFor="facebook" className="form-label"><i className="fa-brands fa-facebook text-success"></i> Facebook</label>
+              <label htmlFor="facebook" className="form-label mt-3"><i className="fa-brands fa-facebook text-success"></i> Facebook</label>
               <input 
                 type="text" 
                 id="facebook"
-                className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+                className="form-control form-control-lg bg-dark border-secondary text-light"
                 placeholder="https://www.facebook.com/username"
-                value={null}
-                name="facebook_url"
-                onChange={null}
+                {...register("facebook_url")}
               />
             </div>
             <div className="col-lg-4 col-md-12">
-              <label htmlFor="twitter" className="form-label"><i className="fa-brands fa-twitter text-success"></i> Twitter</label>
+              <label htmlFor="twitter" className="form-label mt-3"><i className="fa-brands fa-twitter text-success"></i> Twitter</label>
               <input 
                 type="text" 
                 id="twitter"
-                className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+                className="form-control form-control-lg bg-dark border-secondary text-light"
                 placeholder="https://twitter.com/username"
-                value={null}
-                name="twitter_url"
-                onChange={null}
+                {...register("twitter_url")}
               />
             </div>
             <div className="col-lg-4 col-md-12">
-              <label htmlFor="instagram" className="form-label"><i className="fa-brands fa-instagram text-success"></i> Instagram</label>
+              <label htmlFor="instagram" className="form-label mt-3"><i className="fa-brands fa-instagram text-success"></i> Instagram</label>
               <input 
                 type="text" 
                 id="instagram"
-                className="form-control form-control-lg mb-5 bg-dark border-secondary text-light"
+                className="form-control form-control-lg bg-dark border-secondary text-light"
                 placeholder="https://www.instagram.com/username"
-                value={null}
-                name="instagram_url"
-                onChange={null}
+                {...register("instagram_url")}
               />
             </div>
           </div>
 
-          <div className="d-grid gap-2 mb-5 bottom-margin">
-            <button className="btn btn-lg btn-outline-success" onClick={null} type="submit">Envoyer</button>
+          <div className="d-grid gap-2">
+            <button className="btn btn-lg mt-5 btn-outline-success" onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
           </div>
+
+          {confirmSent && 
+          <div className="alert alert-success alert-dismissible fade show mt-5" role="alert">
+            <i className="fa-solid fa-paper-plane text-success"></i> <b>Message envoyé</b>, nous vous répondrons dans les plus brefs délais !
+            <button type="button" onClick={resetConfirmButton} className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          }
+
+          <div className="bottom-margin"></div>
         </div>
       </div>
     </>
