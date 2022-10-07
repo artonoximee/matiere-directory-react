@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 
 function SuggestForm(props) {
@@ -6,6 +6,7 @@ function SuggestForm(props) {
   var base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base(process.env.REACT_APP_AIRTABLE_BASE);
   
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [confirmSent, setConfirmSent] = useState(false)
 
   function onSubmit(data) {
     base('contacts').create([
@@ -26,6 +27,11 @@ function SuggestForm(props) {
       email: '',
       message: ''
     })
+    setConfirmSent(true)
+  }
+
+  function resetConfirmButton() {
+    setConfirmSent(false)
   }
 
   return (
@@ -63,9 +69,18 @@ function SuggestForm(props) {
           />
           {errors.message && <p className="text-danger mt-2">Il serait préférable d'ajouter un petit message, non ?</p>}
 
-          <div className="d-grid gap-2 mt-5 bottom-margin">
-            <button className="btn btn-lg btn-outline-success" onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
+          <div className="d-grid gap-2">
+            <button className="btn btn-lg mt-5 btn-outline-success" onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
           </div>
+
+          {confirmSent && 
+          <div className="alert alert-success alert-dismissible fade show mt-5" role="alert">
+            <i className="fa-solid fa-paper-plane text-success"></i> <b>Message envoyé</b>, nous vous répondrons dans les plus brefs délais !
+            <button type="button" onClick={resetConfirmButton} className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          }
+
+          <div className=" bottom-margin"></div>
         </div>
       </div>
     </>
