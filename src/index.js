@@ -11,6 +11,7 @@ import App from './App';
 import ErrorPage from './components/ErrorPage';
 import Search from './components/Search';
 import Suggest from './components/Suggest';
+import Contact from './components/Contact';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "add",
         element: <Suggest />
+      },
+      {
+        path: "contact",
+        element: <Contact />
       }
     ]
   }

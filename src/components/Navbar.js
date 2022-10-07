@@ -20,7 +20,7 @@ function Navbar() {
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="mailto:contact@mlav.land">Contact</a>
+              <Link to="contact" className="nav-link">Contact</Link>
             </li>
           </ul>
         </div>
