@@ -16,6 +16,7 @@ function SuggestForm(props) {
             value={name}
             name="name"
             onChange={props.handleChange}
+            onBlur={null}
           />
           <label htmlFor="name" className="form-label"><i className="fa-solid fa-envelope text-success"></i> Votre email</label>
           <input 

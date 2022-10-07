@@ -16,6 +16,14 @@ function Contact() {
     }
   )
 
+  const [formErrors, setFormErrors] = useState(
+    {
+      name: "",
+      email: "",
+      message: ""
+    }
+  )
+
   function handleChange(e) {
     const {name, value} = e.target
     setFormData(prevFormData => {
