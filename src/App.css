@@ -2,8 +2,8 @@
   margin-top: 12vh !important;
 }
 
-#results {
-  margin-bottom: 20rem;
+.bottom-margin {
+  margin-bottom: 12vh !important;
 }
 
 .form-control:focus, .form-select:focus {

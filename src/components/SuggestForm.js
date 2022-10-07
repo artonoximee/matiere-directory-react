@@ -152,10 +152,9 @@ function SuggestForm() {
             </div>
           </div>
 
-          
-          
-          
-
+          <div class="d-grid gap-2 mb-5 bottom-margin">
+            <button class="btn btn-lg btn-outline-success" onclick={null} type="submit">Envoyer</button>
+          </div>
         </div>
       </div>
     </>
