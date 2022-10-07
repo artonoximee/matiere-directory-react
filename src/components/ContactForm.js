@@ -1,6 +1,8 @@
 import React from "react";
 
-function SuggestForm() {
+function SuggestForm(props) {
+  const {name, email, message} = props.formData
+
   return (
     <>
       <div className="row justify-content-center mt-4">
@@ -11,9 +13,9 @@ function SuggestForm() {
             id="name"
             className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
             placeholder="Marcel Dupont"
-            value={null}
+            value={name}
             name="name"
-            onChange={null}
+            onChange={props.handleChange}
           />
           <label for="name" className="form-label"><i class="fa-solid fa-envelope text-success"></i> Votre email</label>
           <input 
@@ -21,9 +23,9 @@ function SuggestForm() {
             id="name"
             className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
             placeholder="marceldupont@gmail.com"
-            value={null}
+            value={email}
             name="email"
-            onChange={null}
+            onChange={props.handleChange}
           />
           <label for="message" className="form-label"><i class="fa-solid fa-file-lines text-success"></i> Votre message</label>
           <textarea 
@@ -32,9 +34,9 @@ function SuggestForm() {
             rows="5"
             className="form-control form-control-lg mb-5 bg-dark border-secondary text-light"
             placeholder="Votre message ici !"
-            value={null}
+            value={message}
             name="message"
-            onChange={null}
+            onChange={props.handleChange}
           />
 
           <div class="d-grid gap-2 mb-5 bottom-margin">
