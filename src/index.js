@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <Search />
       },
       {
-        path: "form",
+        path: "add",
         element: <Suggest />
       }
     ]
