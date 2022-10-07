@@ -9,7 +9,7 @@ function SuggestForm(props) {
   const [confirmSent, setConfirmSent] = useState(false)
 
   function onSubmit(data) {
-    base('contacts').create([
+    base('messages').create([
       {
         "fields": {
           "name": data.name,
