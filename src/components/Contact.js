@@ -26,6 +26,26 @@ function Contact() {
     })
   }
 
+  function handleSubmit() {
+    base('contacts').create([
+      {
+        "fields": {
+          "name": formData.name,
+          "email": formData.email,
+          "message": formData.message
+        }
+      }
+    ], function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
+    });
+  }
+
 
   return (
     <>
@@ -33,6 +53,7 @@ function Contact() {
       <ContactForm 
         formData={formData} 
         handleChange={(e) => handleChange(e)}
+        handleSubmit={handleSubmit}
       />
     </>
   )
