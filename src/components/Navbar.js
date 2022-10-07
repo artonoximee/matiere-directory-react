@@ -15,7 +15,7 @@ function Navbar() {
               <Link to="/" className="nav-link">Recherche</Link>
             </li>
             <li className="nav-item">
-              <Link to="form" className="nav-link">Proposer un ajout</Link>
+              <Link to="add" className="nav-link">Proposer un ajout</Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
