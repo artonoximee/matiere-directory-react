@@ -16,7 +16,6 @@ function SuggestForm(props) {
             value={name}
             name="name"
             onChange={props.handleChange}
-            onBlur={props.onFocusOut}
           />
           <label htmlFor="name" className="form-label"><i className="fa-solid fa-envelope text-success"></i> Votre email</label>
           <input 
@@ -27,7 +26,6 @@ function SuggestForm(props) {
             value={email}
             name="email"
             onChange={props.handleChange}
-            onBlur={props.onFocusOut}
           />
           <label htmlFor="message" className="form-label"><i className="fa-solid fa-file-lines text-success"></i> Votre message</label>
           <textarea 
@@ -39,11 +37,10 @@ function SuggestForm(props) {
             value={message}
             name="message"
             onChange={props.handleChange}
-            onBlur={props.onFocusOut}
           />
 
           <div className="d-grid gap-2 mb-5 bottom-margin">
-            <button className="btn btn-lg btn-outline-success" onClick={props.handleSubmit} type="submit" disabled={!props.disableSubmit}>Envoyer</button>
+            <button className="btn btn-lg btn-outline-success" onClick={null} type="submit" disabled={!props.disableSubmit}>Envoyer</button>
           </div>
         </div>
       </div>
