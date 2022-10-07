@@ -8,14 +8,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import './index.css';
 import App from './App';
-import Search from './components/Search'
-import Suggest from './components/Suggest'
+import ErrorPage from './components/ErrorPage';
+import Search from './components/Search';
+import Suggest from './components/Suggest';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
