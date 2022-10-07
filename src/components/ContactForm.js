@@ -7,7 +7,7 @@ function SuggestForm(props) {
     <>
       <div className="row justify-content-center mt-4">
         <div className="col-12">
-          <label for="name" className="form-label"><i class="fa-solid fa-user text-success"></i> Votre nom</label>
+          <label htmlFor="name" className="form-label"><i className="fa-solid fa-user text-success"></i> Votre nom</label>
           <input 
             type="text"
             id="name"
@@ -17,7 +17,7 @@ function SuggestForm(props) {
             name="name"
             onChange={props.handleChange}
           />
-          <label for="name" className="form-label"><i class="fa-solid fa-envelope text-success"></i> Votre email</label>
+          <label htmlFor="name" className="form-label"><i className="fa-solid fa-envelope text-success"></i> Votre email</label>
           <input 
             type="text"
             id="name"
@@ -27,7 +27,7 @@ function SuggestForm(props) {
             name="email"
             onChange={props.handleChange}
           />
-          <label for="message" className="form-label"><i class="fa-solid fa-file-lines text-success"></i> Votre message</label>
+          <label htmlFor="message" className="form-label"><i className="fa-solid fa-file-lines text-success"></i> Votre message</label>
           <textarea 
             type="text"
             id="message"
@@ -39,8 +39,8 @@ function SuggestForm(props) {
             onChange={props.handleChange}
           />
 
-          <div class="d-grid gap-2 mb-5 bottom-margin">
-            <button class="btn btn-lg btn-outline-success" onClick={props.handleSubmit} type="submit">Envoyer</button>
+          <div className="d-grid gap-2 mb-5 bottom-margin">
+            <button className="btn btn-lg btn-outline-success" onClick={props.handleSubmit} type="submit">Envoyer</button>
           </div>
         </div>
       </div>

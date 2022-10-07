@@ -5,7 +5,7 @@ function SuggestForm() {
     <>
       <div className="row justify-content-center mt-4">
         <div className="col-12">
-          <label for="name" className="form-label"><i class="fa-solid fa-file-lines text-success"></i> Nom de la structure</label>
+          <label htmlFor="name" className="form-label"><i className="fa-solid fa-file-lines text-success"></i> Nom de la structure</label>
           <input 
             type="text"
             id="name"
@@ -15,7 +15,7 @@ function SuggestForm() {
             name="text"
             onChange={null}
           />
-          <label for="description" className="form-label">Description de la structure</label>
+          <label htmlFor="description" className="form-label">Description de la structure</label>
           <textarea 
             type="text"
             id="description"
@@ -26,7 +26,7 @@ function SuggestForm() {
             name="description"
             onChange={null}
           />
-          <label for="type" className="form-label">Type de structure</label>
+          <label htmlFor="type" className="form-label">Type de structure</label>
           <select 
             id="type" 
             className="form-select form-select-lg mb-5 bg-dark border-secondary text-light" 
@@ -38,7 +38,7 @@ function SuggestForm() {
           </select>
 
 
-          <label for="address" className="form-label"><i class="fa-solid fa-location-dot text-success"></i> Adresse (numéro et rue)</label>
+          <label htmlFor="address" className="form-label"><i className="fa-solid fa-location-dot text-success"></i> Adresse (numéro et rue)</label>
           <input 
             type="text" 
             id="address"
@@ -48,9 +48,9 @@ function SuggestForm() {
             name="address"
             onChange={null}
           />
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-              <label for="address" className="form-label">Code postal</label>
+          <div className="row">
+            <div className="col-lg-6 col-md-12">
+              <label htmlFor="address" className="form-label">Code postal</label>
               <input
                 type="text"
                 id="address"
@@ -61,8 +61,8 @@ function SuggestForm() {
                 onChange={null}
               />
             </div>
-            <div class="col-lg-6 col-md-12">
-              <label for="department" className="form-label">Département</label>
+            <div className="col-lg-6 col-md-12">
+              <label htmlFor="department" className="form-label">Département</label>
               <select 
                 id="department" 
                 className="form-select form-select-lg mb-3 bg-dark border-secondary text-light" 
@@ -75,7 +75,7 @@ function SuggestForm() {
             </div>
           </div>
 
-          <label for="city" className="form-label">Ville</label>
+          <label htmlFor="city" className="form-label">Ville</label>
           <input 
             type="text" 
             id="city"
@@ -86,9 +86,9 @@ function SuggestForm() {
             onChange={null}
           />
 
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-              <label for="email" className="form-label"><i class="fa-solid fa-envelope text-success"></i> Email</label>
+          <div className="row">
+            <div className="col-lg-6 col-md-12">
+              <label htmlFor="email" className="form-label"><i className="fa-solid fa-envelope text-success"></i> Email</label>
               <input 
                 type="email" 
                 id="email"
@@ -99,8 +99,8 @@ function SuggestForm() {
                 onChange={null}
               />
             </div>
-            <div class="col-lg-6 col-md-12">
-              <label for="telephone" className="form-label"><i class="fa-solid fa-phone text-success"></i> Téléphone</label>
+            <div className="col-lg-6 col-md-12">
+              <label htmlFor="telephone" className="form-label"><i className="fa-solid fa-phone text-success"></i> Téléphone</label>
               <input 
                 type="text" 
                 id="telephone"
@@ -113,7 +113,7 @@ function SuggestForm() {
             </div>
           </div>
 
-          <label for="website" className="form-label"><i class="fa-solid fa-link text-success"></i> Site web</label>
+          <label htmlFor="website" className="form-label"><i className="fa-solid fa-link text-success"></i> Site web</label>
           <input 
             type="text" 
             id="website"
@@ -124,9 +124,9 @@ function SuggestForm() {
             onChange={null}
           />
 
-          <div class="row">
-            <div class="col-lg-4 col-md-12">
-              <label for="facebook" className="form-label"><i class="fa-brands fa-facebook text-success"></i> Facebook</label>
+          <div className="row">
+            <div className="col-lg-4 col-md-12">
+              <label htmlFor="facebook" className="form-label"><i className="fa-brands fa-facebook text-success"></i> Facebook</label>
               <input 
                 type="text" 
                 id="facebook"
@@ -137,8 +137,8 @@ function SuggestForm() {
                 onChange={null}
               />
             </div>
-            <div class="col-lg-4 col-md-12">
-              <label for="twitter" className="form-label"><i class="fa-brands fa-twitter text-success"></i> Twitter</label>
+            <div className="col-lg-4 col-md-12">
+              <label htmlFor="twitter" className="form-label"><i className="fa-brands fa-twitter text-success"></i> Twitter</label>
               <input 
                 type="text" 
                 id="twitter"
@@ -149,8 +149,8 @@ function SuggestForm() {
                 onChange={null}
               />
             </div>
-            <div class="col-lg-4 col-md-12">
-              <label for="instagram" className="form-label"><i class="fa-brands fa-instagram text-success"></i> Instagram</label>
+            <div className="col-lg-4 col-md-12">
+              <label htmlFor="instagram" className="form-label"><i className="fa-brands fa-instagram text-success"></i> Instagram</label>
               <input 
                 type="text" 
                 id="instagram"
@@ -163,8 +163,8 @@ function SuggestForm() {
             </div>
           </div>
 
-          <div class="d-grid gap-2 mb-5 bottom-margin">
-            <button class="btn btn-lg btn-outline-success" onclick={null} type="submit">Envoyer</button>
+          <div className="d-grid gap-2 mb-5 bottom-margin">
+            <button className="btn btn-lg btn-outline-success" onClick={null} type="submit">Envoyer</button>
           </div>
         </div>
       </div>
