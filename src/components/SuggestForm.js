@@ -20,13 +20,24 @@ function SuggestForm() {
             type="text"
             id="description"
             rows="5"
-            className="form-control form-control-lg mb-5 bg-dark border-secondary text-light"
+            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
             placeholder="Entrez ici une description qui permettra de comprendre les services proposés par la structure"
             value={null}
             name="description"
             onChange={null}
           />
-          {/* SELECT OPTIONS TYPE */}
+          <label for="type" className="form-label">Type de structure</label>
+          <select 
+            id="type" 
+            className="form-select form-select-lg mb-5 bg-dark border-secondary text-light" 
+            value={null}
+            name="structure_types"
+            onChange={null}
+          >
+            <option value="NONE">Choisir le type de structure</option>
+          </select>
+
+
           <label for="address" className="form-label"><i class="fa-solid fa-location-dot text-success"></i> Adresse (numéro et rue)</label>
           <input 
             type="text" 
