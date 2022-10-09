@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
 
 function SuggestForm() {
@@ -10,45 +10,58 @@ function SuggestForm() {
   const [types, setTypes] = useState([]);
   const [confirmSent, setConfirmSent] = useState(false)
 
-    // Async function to fetch departments
-    const fetchDepartments = async () => {
-      const records = await base('departments').select({
-        sort: [{field: "num", direction: "asc"}]
-      }).all();
-      const fetchedDepartments = [];
-      for (const record of records) {
-        const rec = {
-          id: record.id,
-          num: record.get('num'),
-          name: record.get('name')
-        }
-        if (fetchedDepartments.some(r => r.id === rec.id)) {
-        } else {
-          fetchedDepartments.push(rec)
-          setDepartments(fetchedDepartments);
-        }
+  // Async function to fetch departments
+  const fetchDepartments = async () => {
+    const records = await base('departments').select({
+      sort: [{field: "num", direction: "asc"}]
+    }).all();
+    const fetchedDepartments = [];
+    for (const record of records) {
+      const rec = {
+        id: record.id,
+        num: record.get('num'),
+        name: record.get('name')
+      }
+      if (fetchedDepartments.some(r => r.id === rec.id)) {
+      } else {
+        fetchedDepartments.push(rec)
+        setDepartments(fetchedDepartments);
       }
     }
-  
-    // Async function to fetch types
-    const fetchTypes = async () => {
-      const records = await base('structure_types').select({
-        sort: [{field: "name", direction: "asc"}]
-      }).all();
-      const fetchedTypes = [];
-      for (const record of records) {
-        const rec = {
-          id: record.id, 
-          name: record.get('name')
-        }
-        if (fetchedTypes.some(r => r.id === rec.id)) {
-        } else {
-          fetchedTypes.push(rec)
-          setTypes(fetchedTypes);
-        }
-      }
-    }
+  }
 
+  // Async function to fetch types
+  const fetchTypes = async () => {
+    const records = await base('structure_types').select({
+      sort: [{field: "name", direction: "asc"}]
+    }).all();
+    const fetchedTypes = [];
+    for (const record of records) {
+      const rec = {
+        id: record.id, 
+        name: record.get('name')
+      }
+      if (fetchedTypes.some(r => r.id === rec.id)) {
+      } else {
+        fetchedTypes.push(rec)
+        setTypes(fetchedTypes);
+      }
+    }
+  }
+
+  useEffect(() => {
+    fetchDepartments();
+    fetchTypes();
+  }, []);
+
+  const optionsDpt = departments.map(dpt => 
+    <option key={dpt.id} value={dpt.id}>{dpt.num} - {dpt.name}</option>
+  )
+
+  const optionsTypes = types.map(type => 
+    <option key={type.id} value={type.id}>{type.name}</option>
+  )
+  
   function onSubmit(data) {
     console.log(data)
     setConfirmSent(true)
@@ -89,7 +102,8 @@ function SuggestForm() {
             className="form-select form-select-lg bg-dark border-secondary text-light" 
             {...register("structure_type")}
           >
-            <option value="NONE">Choisir le type de structure</option>
+            <option value="">Choisir le type de structure</option>
+            {optionsTypes}
           </select>
 
 
@@ -117,10 +131,11 @@ function SuggestForm() {
               <label htmlFor="department" className="form-label mt-3">Département</label>
               <select 
                 id="department" 
-                className="form-select form-select-lg bg-dark border-secondary text-light" 
-                {...register("department")}
+                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.department && "is-invalid border-danger"}`}
+                {...register("department", { required: true })}
               >
-                <option value="NONE">Choisir le département</option>
+                <option>Choisir le département</option>
+                {optionsDpt}
               </select>
             </div>
           </div>
@@ -209,7 +224,7 @@ function SuggestForm() {
 
           {confirmSent && 
           <div className="alert alert-success alert-dismissible fade show mt-5" role="alert">
-            <i className="fa-solid fa-paper-plane text-success"></i> <b>Message envoyé</b>, nous vous répondrons dans les plus brefs délais !
+            <i className="fa-solid fa-paper-plane text-success"></i> <b>Proposition envoyée</b>, nous la traiterons dans les plus brefs délais !
             <button type="button" onClick={resetConfirmButton} className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           }
