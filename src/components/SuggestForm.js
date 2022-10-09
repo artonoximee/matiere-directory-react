@@ -99,13 +99,13 @@ function SuggestForm() {
           <label htmlFor="type" className="form-label mt-3">Type de structure</label>
           <select 
             id="type" 
-            className="form-select form-select-lg bg-dark border-secondary text-light" 
-            {...register("structure_type")}
+            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.structure_type && "is-invalid border-danger"}`} 
+            {...register("structure_type", { required: true })}
           >
             <option value="">Choisir le type de structure</option>
             {optionsTypes}
           </select>
-
+          {errors.structure_type && <p className="text-danger mt-2">Merci de renseigner le type de la structure</p>}
 
           <label htmlFor="address" className="form-label mt-5"><i className="fa-solid fa-location-dot text-success"></i> Adresse (numéro et rue)</label>
           <input 
@@ -134,9 +134,10 @@ function SuggestForm() {
                 className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.department && "is-invalid border-danger"}`}
                 {...register("department", { required: true })}
               >
-                <option>Choisir le département</option>
+                <option value="">Choisir le département</option>
                 {optionsDpt}
               </select>
+              {errors.department && <p className="text-danger mt-2">Merci de renseigner le département</p>}
             </div>
           </div>
 
