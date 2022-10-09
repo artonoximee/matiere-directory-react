@@ -63,7 +63,50 @@ function SuggestForm() {
   )
   
   function onSubmit(data) {
-    console.log(data)
+    base('structures').create([
+      {
+        "fields": {
+          "name": data.name,
+          "publish": false,
+          "description": data.description,
+          "structure_types": [
+            data.structure_type
+          ],
+          "address": data.address,
+          "postcode": data.postcode,
+          "departments": [
+            data.department
+          ],
+          "city": data.city,
+          "country": "France",
+          "telephone": data.telephone,
+          "email": data.email,
+          "website": data.website,
+          "facebook_url": data.facebook_url,
+          "twitter_url": data.twitter_url,
+          "instagram_url": data.instagram_url,
+        }
+      }
+    ], function(err, records) {
+      if (err) {
+        return;
+      }
+    });
+    reset( {
+      name: '',
+      description: '',
+      structure_type: '',
+      address: '',
+      postcode: '',
+      department: '',
+      city: '',
+      telephone: '',
+      email: '',
+      website: '',
+      facebook_url: '',
+      twitter_url: '',
+      instagram_url: ''
+    })
     setConfirmSent(true)
   }
 
