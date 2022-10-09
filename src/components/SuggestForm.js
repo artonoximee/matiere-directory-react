@@ -66,10 +66,11 @@ function SuggestForm() {
               <input
                 type="text"
                 id="address"
-                className="form-control form-control-lg bg-dark border-secondary text-light"
+                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.postcode && "is-invalid border-danger"}`}
                 placeholder="12345"
-                {...register("postcode")}
+                {...register("postcode", { pattern: /\d{5}/g })}
               />
+              {errors.postcode && <p className="text-danger mt-2">Le format du code postal semble incorrect</p>}
             </div>
             <div className="col-lg-6 col-md-12">
               <label htmlFor="department" className="form-label mt-3">Département</label>
@@ -87,10 +88,11 @@ function SuggestForm() {
           <input 
             type="text" 
             id="city"
-            className="form-control form-control-lg bg-dark border-secondary text-light"
+            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.city && "is-invalid border-danger"}`}
             placeholder="Nom de la localité"
-            {...register("city")}
+            {...register("city", { required: true })}
           />
+          {errors.city && <p className="text-danger mt-2">Merci de renseigner la ville où se situe la structure</p>}
 
           <div className="row">
             <div className="col-lg-6 col-md-12">
@@ -98,20 +100,22 @@ function SuggestForm() {
               <input 
                 type="email" 
                 id="email"
-                className="form-control form-control-lg bg-dark border-secondary text-light"
+                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.email && "is-invalid border-danger"}`}
                 placeholder="nom@domaine.com"
-                {...register("email")}
+                {...register("email", { pattern: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i })}
               />
+              {errors.email && <p className="text-danger mt-2">L'adresse email semble incorrecte</p>}
             </div>
             <div className="col-lg-6 col-md-12">
               <label htmlFor="telephone" className="form-label mt-lg-5 mt-3"><i className="fa-solid fa-phone text-success"></i> Téléphone</label>
               <input 
                 type="text" 
                 id="telephone"
-                className="form-control form-control-lg bg-dark border-secondary text-light"
-                placeholder="01 23 45 67 89"
-                {...register("telephone")}
+                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.telephone && "is-invalid border-danger"}`}
+                placeholder="0123456789"
+                {...register("telephone", { pattern: /\d{10}/g })}
               />
+              {errors.telephone && <p className="text-danger mt-2">Le format du téléphone semble incorrect</p>}
             </div>
           </div>
 
@@ -119,10 +123,11 @@ function SuggestForm() {
           <input 
             type="text" 
             id="website"
-            className="form-control form-control-lg bg-dark border-secondary text-light"
+            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.website && "is-invalid border-danger"}`}
             placeholder="http://www.siteinternet.com/"
-            {...register("website")}
+            {...register("website", { pattern: /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/g })}
           />
+          {errors.website && <p className="text-danger mt-2">Le format de l'adresse du site internet semble incorrect</p>}
 
           <div className="row">
             <div className="col-lg-4 col-md-12">
