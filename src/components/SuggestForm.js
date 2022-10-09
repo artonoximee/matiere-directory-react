@@ -13,7 +13,6 @@ function SuggestForm() {
     // Async function to fetch departments
     const fetchDepartments = async () => {
       const records = await base('departments').select({
-        filterByFormula: "NOT({structures} = '')",
         sort: [{field: "num", direction: "asc"}]
       }).all();
       const fetchedDepartments = [];
@@ -34,7 +33,6 @@ function SuggestForm() {
     // Async function to fetch types
     const fetchTypes = async () => {
       const records = await base('structure_types').select({
-        filterByFormula: "NOT({structures} = '')",
         sort: [{field: "name", direction: "asc"}]
       }).all();
       const fetchedTypes = [];
