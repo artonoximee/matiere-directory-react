@@ -6,7 +6,50 @@ function SuggestForm() {
   var base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base(process.env.REACT_APP_AIRTABLE_BASE);
   
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [departments, setDepartments] = useState([]);
+  const [types, setTypes] = useState([]);
   const [confirmSent, setConfirmSent] = useState(false)
+
+    // Async function to fetch departments
+    const fetchDepartments = async () => {
+      const records = await base('departments').select({
+        filterByFormula: "NOT({structures} = '')",
+        sort: [{field: "num", direction: "asc"}]
+      }).all();
+      const fetchedDepartments = [];
+      for (const record of records) {
+        const rec = {
+          id: record.id,
+          num: record.get('num'),
+          name: record.get('name')
+        }
+        if (fetchedDepartments.some(r => r.id === rec.id)) {
+        } else {
+          fetchedDepartments.push(rec)
+          setDepartments(fetchedDepartments);
+        }
+      }
+    }
+  
+    // Async function to fetch types
+    const fetchTypes = async () => {
+      const records = await base('structure_types').select({
+        filterByFormula: "NOT({structures} = '')",
+        sort: [{field: "name", direction: "asc"}]
+      }).all();
+      const fetchedTypes = [];
+      for (const record of records) {
+        const rec = {
+          id: record.id, 
+          name: record.get('name')
+        }
+        if (fetchedTypes.some(r => r.id === rec.id)) {
+        } else {
+          fetchedTypes.push(rec)
+          setTypes(fetchedTypes);
+        }
+      }
+    }
 
   function onSubmit(data) {
     console.log(data)
