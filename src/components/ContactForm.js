@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {useForm} from "react-hook-form";
+import {ThemeContext} from "../context/themeContext"
 
 function SuggestForm(props) {
   var Airtable = require('airtable');
@@ -7,6 +8,7 @@ function SuggestForm(props) {
   
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [confirmSent, setConfirmSent] = useState(false)
+  const {theme} = useContext(ThemeContext)
 
   function onSubmit(data) {
     base('messages').create([
@@ -42,7 +44,7 @@ function SuggestForm(props) {
           <input 
             type="text"
             id="name"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.name && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.name && "is-invalid border-danger"}`}
             placeholder="Marcel Dupont"
             {...register("name", { required: true })}
           />
@@ -52,7 +54,7 @@ function SuggestForm(props) {
           <input 
             type="email"
             id="name"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.email && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.email && "is-invalid border-danger"}`}
             placeholder="marceldupont@gmail.com"
             {...register("email", { required: true, pattern: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i })}
           />
@@ -63,14 +65,14 @@ function SuggestForm(props) {
             type="text"
             id="message"
             rows="5"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.message && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.message && "is-invalid border-danger"}`}
             placeholder="Votre message ici !"
             {...register("message", { required: true })}
           />
           {errors.message && <p className="text-danger mt-2">Il serait préférable d'ajouter un petit message, non ?</p>}
 
           <div className="d-grid gap-2">
-            <button className="btn btn-lg mt-5 btn-outline-success" onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
+            <button className={`btn btn-lg mt-5 ${theme === "dark" ? "btn-outline-success" : "btn-success"}`} onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
           </div>
 
           {confirmSent && 
