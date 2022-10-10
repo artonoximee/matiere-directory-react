@@ -8,7 +8,7 @@ function Navbar() {
   const {theme, toggleTheme} = useContext(ThemeContext)
 
   return (
-    <nav className={`navbar fixed-top navbar-${theme} navbar-expand-lg bg-${theme} p-4 border-bottom border-${theme === "dark" ? "secondary" : "dark"}`}>
+    <nav className={`navbar fixed-top navbar-${theme} navbar-expand-lg bg-${theme} p-4 border-bottom border-secondary`}>
       <div className="container-fluid">
         <Link to="/" className="navbar-brand"><i className="fa-solid fa-address-book text-success"></i> &nbsp;Annuaire Réemploi</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
