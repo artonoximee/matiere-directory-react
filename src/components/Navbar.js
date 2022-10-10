@@ -1,6 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+import "./Navbar.css";
+
 function Navbar() {
   return (
     <nav className="navbar fixed-top navbar-dark navbar-expand-lg bg-dark p-4 border-bottom border-secondary">
@@ -19,6 +21,10 @@ function Navbar() {
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
+            <label className="switch">
+              <input type="checkbox" />
+              <span className="slider round"></span>
+            </label>
             <li className="nav-item">
               <Link to="contact" className="nav-link">Contact</Link>
             </li>
