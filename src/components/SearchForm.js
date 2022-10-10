@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
+import {ThemeContext} from "../context/themeContext"
 
 function SearchForm(props) {
+  const {theme} = useContext(ThemeContext)
+  
   const departments = props.departments;
   const types = props.types;
+  
 
   const { department, type, text } = props.formData;
 
@@ -20,7 +24,7 @@ function SearchForm(props) {
         <div className="col-12">
           <input 
             type="text" 
-            className="form-control form-control-lg mb-3 bg-dark border-secondary text-light"
+            className={`form-control form-control-lg mb-3 bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
             placeholder="Rechercher par nom"
             value={text}
             name="text"
@@ -28,7 +32,7 @@ function SearchForm(props) {
           />
           <select 
             id="department" 
-            className="form-select form-select-lg mb-3 bg-dark border-secondary text-light" 
+            className={`form-control form-control-lg mb-3 bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
             value={department}
             name="department"
             onChange={props.handleChange}
@@ -40,7 +44,7 @@ function SearchForm(props) {
         <div className="col-12">
           <select 
             id="type" 
-            className="form-select form-select-lg mb-3 bg-dark border-secondary text-light"
+            className={`form-control form-control-lg mb-3 bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
             value={type}
             name="type"
             onChange={props.handleChange}
