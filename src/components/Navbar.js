@@ -21,10 +21,12 @@ function Navbar() {
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round"></span>
-            </label>
+            <li className="nav-item">
+              <label className="switch">
+                <input type="checkbox" />
+                <span className="slider round"></span>
+              </label>
+            </li>
             <li className="nav-item">
               <Link to="contact" className="nav-link">Contact</Link>
             </li>
