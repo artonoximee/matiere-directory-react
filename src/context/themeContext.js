@@ -6,6 +6,7 @@ function ThemeContextProvider(props) {
     
     function toggleTheme() {
         setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
+        console.log(theme)
     }
     
     return (
