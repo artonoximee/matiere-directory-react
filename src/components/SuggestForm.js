@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {useForm} from "react-hook-form";
+import {ThemeContext} from "../context/themeContext"
 
 function SuggestForm() {
   var Airtable = require('airtable');
@@ -9,6 +10,7 @@ function SuggestForm() {
   const [departments, setDepartments] = useState([]);
   const [types, setTypes] = useState([]);
   const [confirmSent, setConfirmSent] = useState(false)
+  const {theme} = useContext(ThemeContext)
 
   // Async function to fetch departments
   const fetchDepartments = async () => {
@@ -122,7 +124,7 @@ function SuggestForm() {
           <input 
             type="text"
             id="name"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.name && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.name && "is-invalid border-danger"}`}
             placeholder="Bureau Réemploi"
             {...register("name", { required: true })}
           />
@@ -133,7 +135,7 @@ function SuggestForm() {
             type="text"
             id="description"
             rows="5"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.description && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.description && "is-invalid border-danger"}`}
             placeholder="Entrez ici une description qui permettra de comprendre les services proposés par la structure"
             {...register("description", { required: true })}
           />
@@ -142,7 +144,7 @@ function SuggestForm() {
           <label htmlFor="type" className="form-label mt-3">Type de structure</label>
           <select 
             id="type" 
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.structure_type && "is-invalid border-danger"}`} 
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.structure_type && "is-invalid border-danger"}`} 
             {...register("structure_type", { required: true })}
           >
             <option value="">Choisir le type de structure</option>
@@ -154,7 +156,7 @@ function SuggestForm() {
           <input 
             type="text" 
             id="address"
-            className="form-control form-control-lg bg-dark border-secondary text-light"
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
             placeholder="1 Rue de l'Hôtel de Ville"
             {...register("address")}
           />
@@ -164,7 +166,7 @@ function SuggestForm() {
               <input
                 type="text"
                 id="address"
-                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.postcode && "is-invalid border-danger"}`}
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.postcode && "is-invalid border-danger"}`}
                 placeholder="12345"
                 {...register("postcode", { pattern: /\d{5}/g })}
               />
@@ -174,7 +176,7 @@ function SuggestForm() {
               <label htmlFor="department" className="form-label mt-3">Département</label>
               <select 
                 id="department" 
-                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.department && "is-invalid border-danger"}`}
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.department && "is-invalid border-danger"}`}
                 {...register("department", { required: true })}
               >
                 <option value="">Choisir le département</option>
@@ -188,7 +190,7 @@ function SuggestForm() {
           <input 
             type="text" 
             id="city"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.city && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.city && "is-invalid border-danger"}`}
             placeholder="Nom de la localité"
             {...register("city", { required: true })}
           />
@@ -200,7 +202,7 @@ function SuggestForm() {
               <input 
                 type="email" 
                 id="email"
-                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.email && "is-invalid border-danger"}`}
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.email && "is-invalid border-danger"}`}
                 placeholder="nom@domaine.com"
                 {...register("email", { pattern: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i })}
               />
@@ -211,7 +213,7 @@ function SuggestForm() {
               <input 
                 type="text" 
                 id="telephone"
-                className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.telephone && "is-invalid border-danger"}`}
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.telephone && "is-invalid border-danger"}`}
                 placeholder="0123456789"
                 {...register("telephone", { pattern: /\d{10}/g })}
               />
@@ -223,7 +225,7 @@ function SuggestForm() {
           <input 
             type="text" 
             id="website"
-            className={`form-control form-control-lg bg-dark border-secondary text-light ${errors.website && "is-invalid border-danger"}`}
+            className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"} ${errors.website && "is-invalid border-danger"}`}
             placeholder="http://www.siteinternet.com/"
             {...register("website", { pattern: /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/g })}
           />
@@ -235,7 +237,7 @@ function SuggestForm() {
               <input 
                 type="text" 
                 id="facebook"
-                className="form-control form-control-lg bg-dark border-secondary text-light"
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
                 placeholder="https://www.facebook.com/username"
                 {...register("facebook_url")}
               />
@@ -245,7 +247,7 @@ function SuggestForm() {
               <input 
                 type="text" 
                 id="twitter"
-                className="form-control form-control-lg bg-dark border-secondary text-light"
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
                 placeholder="https://twitter.com/username"
                 {...register("twitter_url")}
               />
@@ -255,7 +257,7 @@ function SuggestForm() {
               <input 
                 type="text" 
                 id="instagram"
-                className="form-control form-control-lg bg-dark border-secondary text-light"
+                className={`form-control form-control-lg bg-${theme} border-secondary text-${theme === "dark" ? "light" : "dark"}`}
                 placeholder="https://www.instagram.com/username"
                 {...register("instagram_url")}
               />
@@ -263,7 +265,7 @@ function SuggestForm() {
           </div>
 
           <div className="d-grid gap-2">
-            <button className="btn btn-lg mt-5 btn-outline-success" onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
+            <button className={`btn btn-lg mt-5 ${theme === "dark" ? "btn-outline-success" : "btn-success"}`} onClick={handleSubmit(onSubmit)} type="submit">Envoyer</button>
           </div>
 
           {confirmSent && 
