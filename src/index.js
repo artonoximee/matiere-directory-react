@@ -8,6 +8,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import './index.css';
 import App from './App';
+
+import {ThemeContextProvider} from "./context/themeContext"
+
 import ErrorPage from './components/ErrorPage';
 import Search from './components/Search';
 import Suggest from './components/Suggest';
@@ -39,7 +42,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeContextProvider>
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
   </React.StrictMode>
 );
 
