@@ -12,7 +12,7 @@ function App() {
   console.log(theme)
 
   return (
-    <div className={`container-fluid bg-${theme} text-${theme === "dark" ? "light" : "dark"}`}>
+    <div id="page" className={`container-fluid bg-${theme} text-${theme === "dark" ? "light" : "dark"}`}>
     <Navbar />
       <div className="container">
         <div className="row align-items-center justify-content-center">
