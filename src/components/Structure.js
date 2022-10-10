@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {ThemeContext} from "../context/themeContext"
 
 function Structure(props) {
+  const {theme} = useContext(ThemeContext)
   const { 
     name, 
     description, 
@@ -24,7 +26,7 @@ function Structure(props) {
   }
 
   return (
-    <div className="card reveal border border-1 border-secondary text-bg-dark mt-4">
+    <div className={`card reveal border border-1 border-secondary text-bg-${theme} mt-4`}>
       <div className="card-body">
         <div className="row align-items-end mt-2">
           <div className="col-12">
@@ -42,13 +44,13 @@ function Structure(props) {
         </div>
         {
           description &&
-          <p className="text-bg-dark mt-2">{description}</p>
+          <p className={`text-bg-${theme} mt-2`}>{description}</p>
         }
         <div className="row">
           <div className="col-12 mt-2">
             {
               website &&
-              <a className="btn btn-sm btn-outline-light" target="_blank" href={website} rel="noreferrer"><i className="fa-solid fa-globe text-success"></i> {urlBeautifier(website)}</a>
+              <a className={`btn btn-sm btn-outline-${theme === "dark" ? "light" : "dark"}`} target="_blank" href={website} rel="noreferrer"><i className="fa-solid fa-globe text-success"></i> {urlBeautifier(website)}</a>
             }
           </div>
           
@@ -58,21 +60,21 @@ function Structure(props) {
               <div className="col-8 mt-2">
                 {
                   email &&
-                  <a className="btn btn-sm btn-outline-light" href={`mailto:${email}`}><i className="fa-solid fa-envelope text-success"></i> {email}</a>
+                  <a className={`btn btn-sm btn-outline-${theme === "dark" ? "light" : "dark"}`} href={`mailto:${email}`}><i className="fa-solid fa-envelope text-success"></i> {email}</a>
                 }
               </div>
               <div className="col-4 mt-2 text-end">
                 {
                   facebook_url &&
-                  <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={facebook_url} rel="noreferrer"><i className="fa-brands fa-facebook text-success"></i></a>
+                  <a className={`btn btn-sm me-2 btn-outline-${theme === "dark" ? "light" : "dark"}`} target="_blank" href={facebook_url} rel="noreferrer"><i className="fa-brands fa-facebook text-success"></i></a>
                 }
                 {
                   instagram_url && 
-                  <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={instagram_url} rel="noreferrer"><i className="fa-brands fa-instagram text-success"></i></a>
+                  <a className={`btn btn-sm me-2 btn-outline-${theme === "dark" ? "light" : "dark"}`} target="_blank" href={instagram_url} rel="noreferrer"><i className="fa-brands fa-instagram text-success"></i></a>
                 }
                 {
                   twitter_url && 
-                  <a className="btn btn-sm btn-outline-light me-2" target="_blank" href={twitter_url} rel="noreferrer"><i className="fa-brands fa-twitter text-success"></i></a>
+                  <a className={`btn btn-sm me-2 btn-outline-${theme === "dark" ? "light" : "dark"}`} target="_blank" href={twitter_url} rel="noreferrer"><i className="fa-brands fa-twitter text-success"></i></a>
                 }
               </div>
             </>
@@ -85,13 +87,13 @@ function Structure(props) {
             <div className="col-8 mt-3">
               { 
                 address && 
-                <a className="btn btn-sm btn-outline-light" target="_blank" href={`https://www.google.com/maps?q=${address}+${postcode}+${city}}`} rel="noreferrer"><i className="fa-solid fa-location-dot text-success"></i> {address}, {postcode}, {city}</a>
+                <a className={`btn btn-sm btn-outline-${theme === "dark" ? "light" : "dark"}`} target="_blank" href={`https://www.google.com/maps?q=${address}+${postcode}+${city}}`} rel="noreferrer"><i className="fa-solid fa-location-dot text-success"></i> {address}, {postcode}, {city}</a>
               }
             </div>
             <div className="col-4 mt-3 text-end">
               {
                 telephone &&
-                <a className="btn btn-sm btn-outline-light" href={`tel:${telephone}}`}><i className="fa-solid fa-phone text-success"></i> {telephone}</a>
+                <a className={`btn btn-sm btn-outline-${theme === "dark" ? "light" : "dark"}`} href={`tel:${telephone}}`}><i className="fa-solid fa-phone text-success"></i> {telephone}</a>
               }
             </div>
           </div>
