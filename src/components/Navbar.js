@@ -19,17 +19,15 @@ function Navbar() {
             <li className="nav-item">
               <Link to="add" className="nav-link">Proposer un ajout</Link>
             </li>
-          </ul>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <label className="switch">
-                <input type="checkbox" />
-                <span className="slider round"></span>
-              </label>
-            </li>
             <li className="nav-item">
               <Link to="contact" className="nav-link">Contact</Link>
             </li>
+          </ul>
+          <ul className="navbar-nav ml-auto">
+            <label className="switch">
+              <input type="checkbox" />
+              <span className="slider round"></span>
+            </label>
           </ul>
         </div>
       </div>
