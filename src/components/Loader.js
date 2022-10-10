@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
+import {ThemeContext} from "../context/themeContext"
+
 import "./Loader.css";
 
 function Loader(props) {
+  const {theme} = useContext(ThemeContext)
   const allStructuresCount = props.structuresCount;
 
   // display a loader if the app is waiting for the API return
-  const loader = <div className="loader"></div>
+  const loader = <div className={`loader-${theme}`}></div>
 
   // display a message if no structure matches the search query
   const noResults = 
